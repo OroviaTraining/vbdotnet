@@ -1,0 +1,12 @@
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\WindowsApp1\bin\Debug\WindowsApp1.exe.config
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\WindowsApp1\bin\Debug\WindowsApp1.exe
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\WindowsApp1\bin\Debug\WindowsApp1.pdb
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\WindowsApp1\bin\Debug\WindowsApp1.xml
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\WindowsApp1\obj\Debug\WindowsApp1.vbproj.AssemblyReference.cache
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\WindowsApp1\obj\Debug\WindowsApp1.vbproj.SuggestedBindingRedirects.cache
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\WindowsApp1\obj\Debug\WindowsApp1.Resources.resources
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\WindowsApp1\obj\Debug\WindowsApp1.vbproj.GenerateResource.cache
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\WindowsApp1\obj\Debug\WindowsApp1.vbproj.CoreCompileInputs.cache
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\WindowsApp1\obj\Debug\WindowsApp1.exe
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\WindowsApp1\obj\Debug\WindowsApp1.xml
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\WindowsApp1\obj\Debug\WindowsApp1.pdb
