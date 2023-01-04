@@ -67,7 +67,7 @@ Partial Class Form2
         '
         'PanelCentre
         '
-        Me.PanelCentre.BackColor = System.Drawing.Color.Blue
+        Me.PanelCentre.BackColor = System.Drawing.Color.CornflowerBlue
         Me.PanelCentre.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelCentre.Location = New System.Drawing.Point(96, 69)
         Me.PanelCentre.Name = "PanelCentre"
