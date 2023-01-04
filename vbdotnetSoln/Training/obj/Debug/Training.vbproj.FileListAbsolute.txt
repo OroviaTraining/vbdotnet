@@ -1,0 +1,14 @@
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\Training\bin\Debug\Training.exe.config
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\Training\bin\Debug\Training.exe
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\Training\bin\Debug\Training.pdb
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\Training\bin\Debug\Training.xml
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\Training\obj\Debug\Training.vbproj.AssemblyReference.cache
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\Training\obj\Debug\Training.vbproj.SuggestedBindingRedirects.cache
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\Training\obj\Debug\Training.Resources.resources
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\Training\obj\Debug\Training.vbproj.GenerateResource.cache
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\Training\obj\Debug\Training.vbproj.CoreCompileInputs.cache
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\Training\obj\Debug\Training.exe
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\Training\obj\Debug\Training.xml
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\Training\obj\Debug\Training.pdb
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\Training\obj\Debug\Training.Form1.resources
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\Training\obj\Debug\Training.Form2.resources
