@@ -22,5 +22,25 @@ Training
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="P:Training.My.Resources.Resources.angry_bird_green_icon">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Training.My.Resources.Resources.angry_bird_icon">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Training.My.Resources.Resources.angry_bird_yellow_icon">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Training.My.Resources.Resources.logout_icon">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 </members>
 </doc>

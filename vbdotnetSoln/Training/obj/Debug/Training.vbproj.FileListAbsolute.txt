@@ -12,3 +12,7 @@ C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\Training\obj\Debug\Training.xml
 C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\Training\obj\Debug\Training.pdb
 C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\Training\obj\Debug\Training.Form1.resources
 C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\Training\obj\Debug\Training.Form2.resources
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\Training\obj\Debug\Training.FormMain.resources
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\Training\obj\Debug\Training.FormNewEmployee.resources
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\Training\obj\Debug\Training.FormMonthlyReport.resources
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\Training\obj\Debug\Training.FormGraphs.resources
