@@ -37,4 +37,9 @@
     Private Sub tsbGraph_Click(sender As Object, e As EventArgs) Handles tsbGraph.Click
         mnuGraphs_Click(Nothing, Nothing)
     End Sub
+
+    Private Sub SearchToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SearchToolStripMenuItem.Click
+        My.Forms.FormTabs.Show()
+        My.Forms.FormTabs.MdiParent = Me
+    End Sub
 End Class

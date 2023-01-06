@@ -16,3 +16,4 @@ C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\Training\obj\Debug\Training.FormMain.
 C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\Training\obj\Debug\Training.FormNewEmployee.resources
 C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\Training\obj\Debug\Training.FormMonthlyReport.resources
 C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\Training\obj\Debug\Training.FormGraphs.resources
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\Training\obj\Debug\Training.FormTabs.resources

@@ -24,24 +24,24 @@ Partial Class FormMain
     Private Sub InitializeComponent()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.EmployeesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ReportsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnNewEmployee = New System.Windows.Forms.ToolStripMenuItem()
         Me.SearchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReportsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MonthlyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.YearlyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuGraphs = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UserGuideToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.mnuGraphs = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.tsbNewEmployee = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.tsbMonthlyReport = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.tsbGraph = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.tsbExit = New System.Windows.Forms.ToolStripButton()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
@@ -64,31 +64,24 @@ Partial Class FormMain
         Me.EmployeesToolStripMenuItem.Size = New System.Drawing.Size(76, 20)
         Me.EmployeesToolStripMenuItem.Text = "Employees"
         '
+        'mnNewEmployee
+        '
+        Me.mnNewEmployee.Name = "mnNewEmployee"
+        Me.mnNewEmployee.Size = New System.Drawing.Size(180, 22)
+        Me.mnNewEmployee.Text = "New"
+        '
+        'SearchToolStripMenuItem
+        '
+        Me.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem"
+        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SearchToolStripMenuItem.Text = "Search"
+        '
         'ReportsToolStripMenuItem
         '
         Me.ReportsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MonthlyToolStripMenuItem, Me.YearlyToolStripMenuItem, Me.mnuGraphs})
         Me.ReportsToolStripMenuItem.Name = "ReportsToolStripMenuItem"
         Me.ReportsToolStripMenuItem.Size = New System.Drawing.Size(59, 20)
         Me.ReportsToolStripMenuItem.Text = "Reports"
-        '
-        'HelpToolStripMenuItem
-        '
-        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem, Me.UserGuideToolStripMenuItem})
-        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
-        Me.HelpToolStripMenuItem.Text = "Help"
-        '
-        'mnNewEmployee
-        '
-        Me.mnNewEmployee.Name = "mnNewEmployee"
-        Me.mnNewEmployee.Size = New System.Drawing.Size(109, 22)
-        Me.mnNewEmployee.Text = "New"
-        '
-        'SearchToolStripMenuItem
-        '
-        Me.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem"
-        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(109, 22)
-        Me.SearchToolStripMenuItem.Text = "Search"
         '
         'MonthlyToolStripMenuItem
         '
@@ -101,6 +94,19 @@ Partial Class FormMain
         Me.YearlyToolStripMenuItem.Name = "YearlyToolStripMenuItem"
         Me.YearlyToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.YearlyToolStripMenuItem.Text = "Yearly"
+        '
+        'mnuGraphs
+        '
+        Me.mnuGraphs.Name = "mnuGraphs"
+        Me.mnuGraphs.Size = New System.Drawing.Size(180, 22)
+        Me.mnuGraphs.Text = "Graphs"
+        '
+        'HelpToolStripMenuItem
+        '
+        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem, Me.UserGuideToolStripMenuItem})
+        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
+        Me.HelpToolStripMenuItem.Text = "Help"
         '
         'AboutToolStripMenuItem
         '
@@ -138,27 +144,6 @@ Partial Class FormMain
         Me.ToolStrip1.TabIndex = 3
         Me.ToolStrip1.Text = "ToolStrip1"
         '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 118)
-        '
-        'ToolStripSeparator2
-        '
-        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 118)
-        '
-        'mnuGraphs
-        '
-        Me.mnuGraphs.Name = "mnuGraphs"
-        Me.mnuGraphs.Size = New System.Drawing.Size(180, 22)
-        Me.mnuGraphs.Text = "Graphs"
-        '
-        'ToolStripSeparator3
-        '
-        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 118)
-        '
         'tsbNewEmployee
         '
         Me.tsbNewEmployee.Image = Global.Training.My.Resources.Resources.angry_bird_icon
@@ -168,6 +153,11 @@ Partial Class FormMain
         Me.tsbNewEmployee.Size = New System.Drawing.Size(100, 115)
         Me.tsbNewEmployee.Text = "New Employee"
         Me.tsbNewEmployee.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 118)
         '
         'tsbMonthlyReport
         '
@@ -179,6 +169,11 @@ Partial Class FormMain
         Me.tsbMonthlyReport.Text = "Monthly report"
         Me.tsbMonthlyReport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
+        'ToolStripSeparator3
+        '
+        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(6, 118)
+        '
         'tsbGraph
         '
         Me.tsbGraph.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
@@ -189,6 +184,11 @@ Partial Class FormMain
         Me.tsbGraph.Size = New System.Drawing.Size(100, 115)
         Me.tsbGraph.Text = "Graphs"
         Me.tsbGraph.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 118)
         '
         'tsbExit
         '
