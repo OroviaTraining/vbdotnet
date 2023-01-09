@@ -22,6 +22,7 @@ Partial Class FormMain
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormMain))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.EmployeesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnNewEmployee = New System.Windows.Forms.ToolStripMenuItem()
@@ -43,6 +44,7 @@ Partial Class FormMain
         Me.tsbGraph = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.tsbExit = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.MenuStrip1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
@@ -67,13 +69,13 @@ Partial Class FormMain
         'mnNewEmployee
         '
         Me.mnNewEmployee.Name = "mnNewEmployee"
-        Me.mnNewEmployee.Size = New System.Drawing.Size(180, 22)
+        Me.mnNewEmployee.Size = New System.Drawing.Size(109, 22)
         Me.mnNewEmployee.Text = "New"
         '
         'SearchToolStripMenuItem
         '
         Me.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem"
-        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(109, 22)
         Me.SearchToolStripMenuItem.Text = "Search"
         '
         'ReportsToolStripMenuItem
@@ -86,19 +88,19 @@ Partial Class FormMain
         'MonthlyToolStripMenuItem
         '
         Me.MonthlyToolStripMenuItem.Name = "MonthlyToolStripMenuItem"
-        Me.MonthlyToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.MonthlyToolStripMenuItem.Size = New System.Drawing.Size(119, 22)
         Me.MonthlyToolStripMenuItem.Text = "Monthly"
         '
         'YearlyToolStripMenuItem
         '
         Me.YearlyToolStripMenuItem.Name = "YearlyToolStripMenuItem"
-        Me.YearlyToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.YearlyToolStripMenuItem.Size = New System.Drawing.Size(119, 22)
         Me.YearlyToolStripMenuItem.Text = "Yearly"
         '
         'mnuGraphs
         '
         Me.mnuGraphs.Name = "mnuGraphs"
-        Me.mnuGraphs.Size = New System.Drawing.Size(180, 22)
+        Me.mnuGraphs.Size = New System.Drawing.Size(119, 22)
         Me.mnuGraphs.Text = "Graphs"
         '
         'HelpToolStripMenuItem
@@ -137,7 +139,7 @@ Partial Class FormMain
         '
         'ToolStrip1
         '
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsbNewEmployee, Me.ToolStripSeparator1, Me.tsbMonthlyReport, Me.ToolStripSeparator3, Me.tsbGraph, Me.ToolStripSeparator2, Me.tsbExit})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsbNewEmployee, Me.ToolStripSeparator1, Me.tsbMonthlyReport, Me.ToolStripSeparator3, Me.tsbGraph, Me.ToolStripSeparator2, Me.tsbExit, Me.ToolStripButton1})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 24)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(800, 118)
@@ -200,6 +202,15 @@ Partial Class FormMain
         Me.tsbExit.Text = "Exit"
         Me.tsbExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText
         '
+        'ToolStripButton1
+        '
+        Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
+        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton1.Name = "ToolStripButton1"
+        Me.ToolStripButton1.Size = New System.Drawing.Size(23, 115)
+        Me.ToolStripButton1.Text = "ToolStripButton1"
+        '
         'FormMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -245,4 +256,5 @@ Partial Class FormMain
     Friend WithEvents tsbGraph As ToolStripButton
     Friend WithEvents mnuGraphs As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
+    Friend WithEvents ToolStripButton1 As ToolStripButton
 End Class
