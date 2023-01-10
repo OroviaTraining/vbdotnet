@@ -110,12 +110,19 @@
     <Compile Include="FormNewEmployee.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormProducts.Designer.vb">
+      <DependentUpon>FormProducts.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormProducts.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormTabs.Designer.vb">
       <DependentUpon>FormTabs.vb</DependentUpon>
     </Compile>
     <Compile Include="FormTabs.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Models\Product.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -151,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNewEmployee.resx">
       <DependentUpon>FormNewEmployee.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProducts.resx">
+      <DependentUpon>FormProducts.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTabs.resx">
       <DependentUpon>FormTabs.vb</DependentUpon>
