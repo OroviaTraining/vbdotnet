@@ -1,6 +1,6 @@
 ﻿Module Module1
 
-    Sub Main()
+    Sub Main1()
         'Create employee object
         'Dim emp1 = New Employee()
 
@@ -55,7 +55,7 @@
         largePrimes.Insert(4, 2009)
 
         'I can change value of list
-        largePrimes(3)=76
+        largePrimes(3) = 76
         largePrimes(6) = largePrimes(3) + largePrimes(1) * 35
 
         'Remove 7th Item

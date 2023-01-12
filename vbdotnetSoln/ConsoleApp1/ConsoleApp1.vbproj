@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{29126F8B-6969-46A8-988C-E8F70008B10A}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <StartupObject>ConsoleApp1.Module1</StartupObject>
+    <StartupObject>ConsoleApp1.ModuleLists</StartupObject>
     <RootNamespace>ConsoleApp1</RootNamespace>
     <AssemblyName>ConsoleApp1</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="Employee.vb" />
     <Compile Include="Module1.vb" />
+    <Compile Include="ModuleLists.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

@@ -4,5 +4,6 @@
     Public Property Salary As Decimal
     Public Property DOB As Date
     Public Property Married As Boolean
+    Public Property Age As Byte
 
 End Class
