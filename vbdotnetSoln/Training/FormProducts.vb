@@ -1,6 +1,8 @@
 ﻿Public Class FormProducts
     Public Property productList As New List(Of Product)
-
+    Private pID As Byte
+    Private qry As IEnumerable(Of Product) = From Y In productList Where Y.PID = pID Select Y
+    Private productObj As Product
     Private Sub dcn(sender As Object, e As EventArgs) Handles ButtonSave.Click
         'Read values from the screen into product object
         Dim obj As New Product
@@ -116,4 +118,20 @@
         Return productID = obj.PID
     End Function
 
+    Private Sub ButtonFast_Click(sender As Object, e As EventArgs) Handles ButtonFast.Click
+        'Set the variable nefore calling the qry
+        pID = Byte.Parse(txtID.Text)
+        productObj = qry.Single()
+        ShowProduct()
+    End Sub
+
+    ''' <summary>
+    ''' Set the variable productObj before calling function
+    ''' </summary>
+    Private Sub ShowProduct()
+        With productObj
+            txtName.Text = .PName
+            txtCost.Text = .PCost
+        End With
+    End Sub
 End Class

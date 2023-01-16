@@ -42,5 +42,10 @@ Training
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="M:Training.FormProducts.ShowProduct">
+ <summary>
+ Set the variable productObj before calling function
+ </summary>
+</member>
 </members>
 </doc>

@@ -1,5 +1,5 @@
-﻿Module ModuleLinqToObjects
-    Sub main4()
+﻿Module SingleOrDefault
+    Sub main()
         Dim employees = New List(Of Employee)
         Dim employee As Employee
         Dim rand As New Random
@@ -26,39 +26,43 @@
             employees.Add(employee)
         Next
 
-        'Find all employees with age < 25 and store the result in new list
-        'SELECT * FROM Employees WHERE Age <25
-        Dim qry25 = From T In employees
-                    Where T.Age < 25
-                    Select T
-        Dim result25 = qry25.ToList()
-        ShowEmployees(result25)
+        'Get the first employe whose salary is 25000
+        Dim qry = From T In employees
+                  Where T.Salary = 25000
+                  Select T
+        employee = qry.FirstOrDefault()
+        ShowEmployee(employee)
 
-        'Shortcut of above
-        Dim result25a = (From T In employees
-                         Where T.Age < 25
-                         Select T).ToList
-        ShowEmployees(result25)
+        'Method 2 uisng lamba express
+        Dim result = employees.FirstOrDefault(Function(U) U.Salary = 25000)
+        ShowEmployee(result)
 
-        'Query 2
-        Dim result1 = (From G In employees
-                       Where G.Age < 25 AndAlso G.Salary > 50000 AndAlso G.Salary < 60000
-                       Select G).ToList
-        ShowEmployees(result1)
+        'Get the employee with given emp ID
+        Dim empid = "EP10"
+        Dim result1 = employees.Single(Function(U) U.EmpID = empid)
+        ShowEmployee(result1)
 
-        'Query 3. return only Employee and Age
-        'SELECT name,salary FROM Employees WHERE age <15 and salary BETWEEN 50000 AND 60000
-        'The result is called anonymous objects
-        Dim resul2 = (From G In employees
-                      Where G.Age < 25 AndAlso G.Salary > 50000 AndAlso G.Salary < 60000
-                      Select G.EmpName, G.Salary, G.Age).ToList
-        resul2.ForEach(Sub(P)
-                           With P
-                               Console.WriteLine("{0}{1}{2}{3}{4}{5}", .EmpName, vbTab, vbTab, .Salary, vbTab, .Age)
-                           End With
-                       End Sub)
+        empid = "EPAB"
+        result1 = employees.SingleOrDefault(Function(U) U.EmpID = empid)
+        ShowEmployee(result1)
 
-        Console.ReadLine()
+        'Resusing the query
+        Dim eid As String = String.Empty
+        'Create a query to get emplpyee by id
+        Dim employeeByID = From K In employees
+                           Where K.EmpID = eid
+                           Select K
+        'Get an employee
+        eid = "EP10"
+        employee = employeeByID.Single()
+        ShowEmployee(employee)
+
+        'Get second employee
+        eid = "EP14"
+        employee = employeeByID.Single()
+        ShowEmployee(employee)
+
+
     End Sub
     Private Sub ShowEmployees(ByVal objs As List(Of Employee))
         Console.WriteLine("Name{0}{1}Salary{2}Age", vbTab, vbTab, vbTab)
@@ -71,6 +75,8 @@
         Console.WriteLine("There are {0} employees", objs.Count)
     End Sub
     Private Sub ShowEmployee(ByVal emp As Employee)
+        'Vlidate the parameters
+        If emp Is Nothing Then Exit Sub
         With emp
             Console.WriteLine("{0}{1}{2}{3}{4}{5}", .EmpName, vbTab, vbTab, .Salary, vbTab, .Age)
         End With

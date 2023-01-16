@@ -26,6 +26,7 @@ Partial Class FormProducts
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.ButtonLookup = New System.Windows.Forms.Button()
         Me.ButtonSave = New System.Windows.Forms.Button()
         Me.txtCost = New System.Windows.Forms.TextBox()
         Me.txtName = New System.Windows.Forms.TextBox()
@@ -34,7 +35,7 @@ Partial Class FormProducts
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.DataGridViewProducts = New System.Windows.Forms.DataGridView()
-        Me.ButtonLookup = New System.Windows.Forms.Button()
+        Me.ButtonFast = New System.Windows.Forms.Button()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
         CType(Me.DataGridViewProducts, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -72,6 +73,7 @@ Partial Class FormProducts
         '
         'Panel3
         '
+        Me.Panel3.Controls.Add(Me.ButtonFast)
         Me.Panel3.Controls.Add(Me.ButtonLookup)
         Me.Panel3.Controls.Add(Me.ButtonSave)
         Me.Panel3.Controls.Add(Me.txtCost)
@@ -85,6 +87,15 @@ Partial Class FormProducts
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(863, 189)
         Me.Panel3.TabIndex = 2
+        '
+        'ButtonLookup
+        '
+        Me.ButtonLookup.Location = New System.Drawing.Point(268, 34)
+        Me.ButtonLookup.Name = "ButtonLookup"
+        Me.ButtonLookup.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonLookup.TabIndex = 7
+        Me.ButtonLookup.Text = "Lookup"
+        Me.ButtonLookup.UseVisualStyleBackColor = True
         '
         'ButtonSave
         '
@@ -152,14 +163,14 @@ Partial Class FormProducts
         Me.DataGridViewProducts.Size = New System.Drawing.Size(863, 286)
         Me.DataGridViewProducts.TabIndex = 3
         '
-        'ButtonLookup
+        'ButtonFast
         '
-        Me.ButtonLookup.Location = New System.Drawing.Point(268, 34)
-        Me.ButtonLookup.Name = "ButtonLookup"
-        Me.ButtonLookup.Size = New System.Drawing.Size(75, 23)
-        Me.ButtonLookup.TabIndex = 7
-        Me.ButtonLookup.Text = "Lookup"
-        Me.ButtonLookup.UseVisualStyleBackColor = True
+        Me.ButtonFast.Location = New System.Drawing.Point(349, 34)
+        Me.ButtonFast.Name = "ButtonFast"
+        Me.ButtonFast.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonFast.TabIndex = 8
+        Me.ButtonFast.Text = "Lookup qry"
+        Me.ButtonFast.UseVisualStyleBackColor = True
         '
         'FormProducts
         '
@@ -193,4 +204,5 @@ Partial Class FormProducts
     Friend WithEvents Label2 As Label
     Friend WithEvents DataGridViewProducts As DataGridView
     Friend WithEvents ButtonLookup As Button
+    Friend WithEvents ButtonFast As Button
 End Class
