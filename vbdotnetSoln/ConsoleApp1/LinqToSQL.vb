@@ -1,5 +1,5 @@
 ﻿Module LinqToSQL
-    Sub main()
+    Sub main5()
 
         'Add new product
         'CreateProduct()
