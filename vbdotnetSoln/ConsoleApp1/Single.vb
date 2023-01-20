@@ -1,5 +1,5 @@
 ﻿Module SingleOrDefault
-    Sub main()
+    Sub main5()
         Dim employees = New List(Of Employee)
         Dim employee As Employee
         Dim rand As New Random
