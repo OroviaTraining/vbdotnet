@@ -63,6 +63,34 @@ Namespace My
                 Return CType(Me("ConnStr"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Training Project")>  _
+        Public ReadOnly Property ProjectName() As String
+            Get
+                Return CType(Me("ProjectName"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("dcn@orovia.com")>  _
+        Public ReadOnly Property DeveloperEmail() As String
+            Get
+                Return CType(Me("DeveloperEmail"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=Northwind;Integrated Security=True")>  _
+        Public ReadOnly Property NorthConnStr() As String
+            Get
+                Return CType(Me("NorthConnStr"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 

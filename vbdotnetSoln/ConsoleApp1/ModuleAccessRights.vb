@@ -1,5 +1,5 @@
 ﻿Module ModuleAccessRights
-    Sub main()
+    Sub main8()
         Dim c1Obj1 As New Class1
         c1Obj1.e = 10
         c1Obj1.f = 25

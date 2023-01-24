@@ -94,6 +94,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="NlorthWind.vb" />
+    <Compile Include="NortWind.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NortWind.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Product.vb" />
     <Compile Include="Single.vb" />
     <Compile Include="Training.designer.vb">
@@ -121,6 +127,14 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="NortWind.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>NortWind.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="NortWind.dbml.layout">
+      <DependentUpon>NortWind.dbml</DependentUpon>
+    </None>
     <None Include="Training.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>Training.designer.vb</LastGenOutput>
