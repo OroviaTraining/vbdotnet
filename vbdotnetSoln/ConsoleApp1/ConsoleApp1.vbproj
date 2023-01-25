@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{29126F8B-6969-46A8-988C-E8F70008B10A}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <StartupObject>Sub Main</StartupObject>
+    <StartupObject>ConsoleApp1.D20230125</StartupObject>
     <RootNamespace>ConsoleApp1</RootNamespace>
     <AssemblyName>ConsoleApp1</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -72,6 +72,7 @@
   <ItemGroup>
     <Compile Include="Class1.vb" />
     <Compile Include="Class2.vb" />
+    <Compile Include="D20230125.vb" />
     <Compile Include="Employee.vb" />
     <Compile Include="LinqToSQL.vb" />
     <Compile Include="Module1.vb" />
@@ -102,6 +103,7 @@
     </Compile>
     <Compile Include="Product.vb" />
     <Compile Include="Single.vb" />
+    <Compile Include="Staff.vb" />
     <Compile Include="Training.designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

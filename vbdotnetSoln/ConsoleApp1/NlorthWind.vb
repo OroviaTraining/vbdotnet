@@ -1,5 +1,5 @@
 ﻿Module NlorthWind
-    Sub main()
+    Sub main8()
         'call SP and get all the data in a list
         Dim dtx As New NortWindDataContext
         dtx.Log = Console.Out
