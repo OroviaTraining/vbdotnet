@@ -1,5 +1,5 @@
 ﻿Module D20230125
-    Sub main()
+    Sub main10()
         Dim obj1 As New Staff
         With obj1
             .fname = "DC"

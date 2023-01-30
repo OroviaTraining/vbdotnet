@@ -33,4 +33,8 @@
       <Column Name="Total" Type="System.Decimal" DbType="Money" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.OrderCountByEmployee" Method="OrderCountByEmployee" IsComposable="true">
+    <Parameter Name="EmployeeID" Parameter="employeeID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>
