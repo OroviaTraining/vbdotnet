@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Inventory" Class="InventoryDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=OROVIA-LTP-XX;Initial Catalog=Inventory;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" SettingsObjectName="InventorySystem.My.MySettings" SettingsPropertyName="InventoryConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Graphic" Member="Graphics">
+    <Type Name="Graphic">
+      <Column Name="seqno" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="gname" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="credate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="creuser" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="amddate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="amduser" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
