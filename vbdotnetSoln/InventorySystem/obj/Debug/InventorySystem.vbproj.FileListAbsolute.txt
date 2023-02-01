@@ -12,3 +12,5 @@ C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\InventorySystem\obj\Debug\InventorySy
 C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\InventorySystem\obj\Debug\InventorySystem.xml
 C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\InventorySystem\obj\Debug\InventorySystem.pdb
 C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\InventorySystem\obj\Debug\InventorySystem.MainForm.resources
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\InventorySystem\obj\Debug\InventorySystem.Form2.resources
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\InventorySystem\obj\Debug\InventorySystem.Form3.resources

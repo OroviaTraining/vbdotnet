@@ -37,6 +37,18 @@ Partial Public Class InventoryDataContext
     End Sub
   Partial Private Sub DeleteGraphic(instance As Graphic)
     End Sub
+  Partial Private Sub InsertCustOrder(instance As CustOrder)
+    End Sub
+  Partial Private Sub UpdateCustOrder(instance As CustOrder)
+    End Sub
+  Partial Private Sub DeleteCustOrder(instance As CustOrder)
+    End Sub
+  Partial Private Sub InsertUKCustomer(instance As UKCustomer)
+    End Sub
+  Partial Private Sub UpdateUKCustomer(instance As UKCustomer)
+    End Sub
+  Partial Private Sub DeleteUKCustomer(instance As UKCustomer)
+    End Sub
   #End Region
 	
 	Public Sub New()
@@ -67,6 +79,18 @@ Partial Public Class InventoryDataContext
 	Public ReadOnly Property Graphics() As System.Data.Linq.Table(Of Graphic)
 		Get
 			Return Me.GetTable(Of Graphic)
+		End Get
+	End Property
+	
+	Public ReadOnly Property CustOrders() As System.Data.Linq.Table(Of CustOrder)
+		Get
+			Return Me.GetTable(Of CustOrder)
+		End Get
+	End Property
+	
+	Public ReadOnly Property UKCustomers() As System.Data.Linq.Table(Of UKCustomer)
+		Get
+			Return Me.GetTable(Of UKCustomer)
 		End Get
 	End Property
 End Class
@@ -241,5 +265,297 @@ Partial Public Class Graphic
 					= false) Then
 			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
 		End If
+	End Sub
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.CustOrder")>  _
+Partial Public Class CustOrder
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _orderID As Integer
+	
+	Private _orderDate As Date
+	
+	Private _custID As String
+	
+	Private _orderTotal As Decimal
+	
+	Private _UKCustomer As EntityRef(Of UKCustomer)
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OnorderIDChanging(value As Integer)
+    End Sub
+    Partial Private Sub OnorderIDChanged()
+    End Sub
+    Partial Private Sub OnorderDateChanging(value As Date)
+    End Sub
+    Partial Private Sub OnorderDateChanged()
+    End Sub
+    Partial Private Sub OncustIDChanging(value As String)
+    End Sub
+    Partial Private Sub OncustIDChanged()
+    End Sub
+    Partial Private Sub OnorderTotalChanging(value As Decimal)
+    End Sub
+    Partial Private Sub OnorderTotalChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		Me._UKCustomer = CType(Nothing, EntityRef(Of UKCustomer))
+		OnCreated
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_orderID", AutoSync:=AutoSync.OnInsert, DbType:="Int NOT NULL IDENTITY", IsPrimaryKey:=true, IsDbGenerated:=true)>  _
+	Public Property orderID() As Integer
+		Get
+			Return Me._orderID
+		End Get
+		Set
+			If ((Me._orderID = value)  _
+						= false) Then
+				Me.OnorderIDChanging(value)
+				Me.SendPropertyChanging
+				Me._orderID = value
+				Me.SendPropertyChanged("orderID")
+				Me.OnorderIDChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_orderDate", DbType:="Date NOT NULL")>  _
+	Public Property orderDate() As Date
+		Get
+			Return Me._orderDate
+		End Get
+		Set
+			If ((Me._orderDate = value)  _
+						= false) Then
+				Me.OnorderDateChanging(value)
+				Me.SendPropertyChanging
+				Me._orderDate = value
+				Me.SendPropertyChanged("orderDate")
+				Me.OnorderDateChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_custID", DbType:="Char(10) NOT NULL", CanBeNull:=false)>  _
+	Public Property custID() As String
+		Get
+			Return Me._custID
+		End Get
+		Set
+			If (String.Equals(Me._custID, value) = false) Then
+				If Me._UKCustomer.HasLoadedOrAssignedValue Then
+					Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
+				End If
+				Me.OncustIDChanging(value)
+				Me.SendPropertyChanging
+				Me._custID = value
+				Me.SendPropertyChanged("custID")
+				Me.OncustIDChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_orderTotal", DbType:="Decimal(10,2) NOT NULL")>  _
+	Public Property orderTotal() As Decimal
+		Get
+			Return Me._orderTotal
+		End Get
+		Set
+			If ((Me._orderTotal = value)  _
+						= false) Then
+				Me.OnorderTotalChanging(value)
+				Me.SendPropertyChanging
+				Me._orderTotal = value
+				Me.SendPropertyChanged("orderTotal")
+				Me.OnorderTotalChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Customer_CustOrder", Storage:="_UKCustomer", ThisKey:="custID", OtherKey:="custID", IsForeignKey:=true, DeleteOnNull:=true, DeleteRule:="CASCADE")>  _
+	Public Property UKCustomer() As UKCustomer
+		Get
+			Return Me._UKCustomer.Entity
+		End Get
+		Set
+			Dim previousValue As UKCustomer = Me._UKCustomer.Entity
+			If ((Object.Equals(previousValue, value) = false)  _
+						OrElse (Me._UKCustomer.HasLoadedOrAssignedValue = false)) Then
+				Me.SendPropertyChanging
+				If ((previousValue Is Nothing)  _
+							= false) Then
+					Me._UKCustomer.Entity = Nothing
+					previousValue.CustOrders.Remove(Me)
+				End If
+				Me._UKCustomer.Entity = value
+				If ((value Is Nothing)  _
+							= false) Then
+					value.CustOrders.Add(Me)
+					Me._custID = value.custID
+				Else
+					Me._custID = CType(Nothing, String)
+				End If
+				Me.SendPropertyChanged("UKCustomer")
+			End If
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Customer")>  _
+Partial Public Class UKCustomer
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _custID As String
+	
+	Private _custName As String
+	
+	Private _custCity As String
+	
+	Private _CustOrders As EntitySet(Of CustOrder)
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OncustIDChanging(value As String)
+    End Sub
+    Partial Private Sub OncustIDChanged()
+    End Sub
+    Partial Private Sub OncustNameChanging(value As String)
+    End Sub
+    Partial Private Sub OncustNameChanged()
+    End Sub
+    Partial Private Sub OncustCityChanging(value As String)
+    End Sub
+    Partial Private Sub OncustCityChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		Me._CustOrders = New EntitySet(Of CustOrder)(AddressOf Me.attach_CustOrders, AddressOf Me.detach_CustOrders)
+		OnCreated
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_custID", DbType:="Char(10) NOT NULL", CanBeNull:=false, IsPrimaryKey:=true)>  _
+	Public Property custID() As String
+		Get
+			Return Me._custID
+		End Get
+		Set
+			If (String.Equals(Me._custID, value) = false) Then
+				Me.OncustIDChanging(value)
+				Me.SendPropertyChanging
+				Me._custID = value
+				Me.SendPropertyChanged("custID")
+				Me.OncustIDChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_custName", DbType:="VarChar(50) NOT NULL", CanBeNull:=false)>  _
+	Public Property custName() As String
+		Get
+			Return Me._custName
+		End Get
+		Set
+			If (String.Equals(Me._custName, value) = false) Then
+				Me.OncustNameChanging(value)
+				Me.SendPropertyChanging
+				Me._custName = value
+				Me.SendPropertyChanged("custName")
+				Me.OncustNameChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_custCity", DbType:="VarChar(25)")>  _
+	Public Property custCity() As String
+		Get
+			Return Me._custCity
+		End Get
+		Set
+			If (String.Equals(Me._custCity, value) = false) Then
+				Me.OncustCityChanging(value)
+				Me.SendPropertyChanging
+				Me._custCity = value
+				Me.SendPropertyChanged("custCity")
+				Me.OncustCityChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Customer_CustOrder", Storage:="_CustOrders", ThisKey:="custID", OtherKey:="custID")>  _
+	Public Property CustOrders() As EntitySet(Of CustOrder)
+		Get
+			Return Me._CustOrders
+		End Get
+		Set
+			Me._CustOrders.Assign(value)
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
+	
+	Private Sub attach_CustOrders(ByVal entity As CustOrder)
+		Me.SendPropertyChanging
+		entity.UKCustomer = Me
+	End Sub
+	
+	Private Sub detach_CustOrders(ByVal entity As CustOrder)
+		Me.SendPropertyChanging
+		entity.UKCustomer = Nothing
 	End Sub
 End Class
