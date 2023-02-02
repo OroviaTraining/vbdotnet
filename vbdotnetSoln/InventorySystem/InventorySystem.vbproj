@@ -94,6 +94,12 @@
     <Compile Include="Form3.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormValidation.Designer.vb">
+      <DependentUpon>FormValidation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormValidation.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Inventory.designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -132,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form3.resx">
       <DependentUpon>Form3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormValidation.resx">
+      <DependentUpon>FormValidation.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.vb</DependentUpon>

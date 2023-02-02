@@ -83,6 +83,24 @@ Namespace My
                 Return CType(Me("InventoryConnectionString"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Red")>  _
+        Public ReadOnly Property ErrorMessageColor() As Global.System.Drawing.Color
+            Get
+                Return CType(Me("ErrorMessageColor"),Global.System.Drawing.Color)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0, 192, 0")>  _
+        Public ReadOnly Property SuccessMessageColor() As Global.System.Drawing.Color
+            Get
+                Return CType(Me("SuccessMessageColor"),Global.System.Drawing.Color)
+            End Get
+        End Property
     End Class
 End Namespace
 

@@ -23,25 +23,25 @@ Partial Class Form2
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2))
         Dim AmddateLabel As System.Windows.Forms.Label
         Dim AmduserLabel As System.Windows.Forms.Label
         Dim CredateLabel As System.Windows.Forms.Label
         Dim CreuserLabel As System.Windows.Forms.Label
         Dim GnameLabel As System.Windows.Forms.Label
         Dim SeqnoLabel As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2))
         Me.GraphicBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
+        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
+        Me.GraphicBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMovePreviousItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator = New System.Windows.Forms.ToolStripSeparator()
         Me.BindingNavigatorPositionItem = New System.Windows.Forms.ToolStripTextBox()
-        Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel()
         Me.BindingNavigatorSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton()
         Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
-        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton()
         Me.GraphicBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
         Me.AmddateDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.AmduserTextBox = New System.Windows.Forms.TextBox()
@@ -49,7 +49,6 @@ Partial Class Form2
         Me.CreuserTextBox = New System.Windows.Forms.TextBox()
         Me.GnameTextBox = New System.Windows.Forms.TextBox()
         Me.SeqnoTextBox = New System.Windows.Forms.TextBox()
-        Me.GraphicBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         AmddateLabel = New System.Windows.Forms.Label()
         AmduserLabel = New System.Windows.Forms.Label()
         CredateLabel = New System.Windows.Forms.Label()
@@ -61,13 +60,67 @@ Partial Class Form2
         CType(Me.GraphicBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
+        'AmddateLabel
+        '
+        AmddateLabel.AutoSize = True
+        AmddateLabel.Location = New System.Drawing.Point(222, 91)
+        AmddateLabel.Name = "AmddateLabel"
+        AmddateLabel.Size = New System.Drawing.Size(51, 13)
+        AmddateLabel.TabIndex = 1
+        AmddateLabel.Text = "amddate:"
+        '
+        'AmduserLabel
+        '
+        AmduserLabel.AutoSize = True
+        AmduserLabel.Location = New System.Drawing.Point(222, 116)
+        AmduserLabel.Name = "AmduserLabel"
+        AmduserLabel.Size = New System.Drawing.Size(50, 13)
+        AmduserLabel.TabIndex = 3
+        AmduserLabel.Text = "amduser:"
+        '
+        'CredateLabel
+        '
+        CredateLabel.AutoSize = True
+        CredateLabel.Location = New System.Drawing.Point(222, 143)
+        CredateLabel.Name = "CredateLabel"
+        CredateLabel.Size = New System.Drawing.Size(46, 13)
+        CredateLabel.TabIndex = 5
+        CredateLabel.Text = "credate:"
+        '
+        'CreuserLabel
+        '
+        CreuserLabel.AutoSize = True
+        CreuserLabel.Location = New System.Drawing.Point(222, 168)
+        CreuserLabel.Name = "CreuserLabel"
+        CreuserLabel.Size = New System.Drawing.Size(45, 13)
+        CreuserLabel.TabIndex = 7
+        CreuserLabel.Text = "creuser:"
+        '
+        'GnameLabel
+        '
+        GnameLabel.AutoSize = True
+        GnameLabel.Location = New System.Drawing.Point(222, 194)
+        GnameLabel.Name = "GnameLabel"
+        GnameLabel.Size = New System.Drawing.Size(42, 13)
+        GnameLabel.TabIndex = 9
+        GnameLabel.Text = "gname:"
+        '
+        'SeqnoLabel
+        '
+        SeqnoLabel.AutoSize = True
+        SeqnoLabel.Location = New System.Drawing.Point(222, 220)
+        SeqnoLabel.Name = "SeqnoLabel"
+        SeqnoLabel.Size = New System.Drawing.Size(39, 13)
+        SeqnoLabel.TabIndex = 11
+        SeqnoLabel.Text = "seqno:"
+        '
         'GraphicBindingNavigator
         '
         Me.GraphicBindingNavigator.AddNewItem = Me.BindingNavigatorAddNewItem
         Me.GraphicBindingNavigator.BindingSource = Me.GraphicBindingSource
         Me.GraphicBindingNavigator.CountItem = Me.BindingNavigatorCountItem
-        Me.GraphicBindingNavigator.DeleteItem = Me.BindingNavigatorDeleteItem
-        Me.GraphicBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.GraphicBindingNavigatorSaveItem})
+        Me.GraphicBindingNavigator.DeleteItem = Nothing
+        Me.GraphicBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.GraphicBindingNavigatorSaveItem})
         Me.GraphicBindingNavigator.Location = New System.Drawing.Point(0, 0)
         Me.GraphicBindingNavigator.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
         Me.GraphicBindingNavigator.MoveLastItem = Me.BindingNavigatorMoveLastItem
@@ -78,6 +131,26 @@ Partial Class Form2
         Me.GraphicBindingNavigator.Size = New System.Drawing.Size(800, 25)
         Me.GraphicBindingNavigator.TabIndex = 0
         Me.GraphicBindingNavigator.Text = "BindingNavigator1"
+        '
+        'BindingNavigatorAddNewItem
+        '
+        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
+        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
+        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
+        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
+        Me.BindingNavigatorAddNewItem.Text = "Add new"
+        '
+        'GraphicBindingSource
+        '
+        Me.GraphicBindingSource.DataSource = GetType(InventorySystem.Graphic)
+        '
+        'BindingNavigatorCountItem
+        '
+        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
+        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(35, 22)
+        Me.BindingNavigatorCountItem.Text = "of {0}"
+        Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
         '
         'BindingNavigatorMoveFirstItem
         '
@@ -112,16 +185,9 @@ Partial Class Form2
         Me.BindingNavigatorPositionItem.Text = "0"
         Me.BindingNavigatorPositionItem.ToolTipText = "Current position"
         '
-        'BindingNavigatorCountItem
-        '
-        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(35, 22)
-        Me.BindingNavigatorCountItem.Text = "of {0}"
-        Me.BindingNavigatorCountItem.ToolTipText = "Total number of items"
-        '
         'BindingNavigatorSeparator1
         '
-        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator"
+        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator1"
         Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 25)
         '
         'BindingNavigatorMoveNextItem
@@ -144,26 +210,8 @@ Partial Class Form2
         '
         'BindingNavigatorSeparator2
         '
-        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator"
+        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
         Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
-        '
-        'BindingNavigatorAddNewItem
-        '
-        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
-        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorAddNewItem.Text = "Add new"
-        '
-        'BindingNavigatorDeleteItem
-        '
-        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
-        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorDeleteItem.Text = "Delete"
         '
         'GraphicBindingNavigatorSaveItem
         '
@@ -173,15 +221,6 @@ Partial Class Form2
         Me.GraphicBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 22)
         Me.GraphicBindingNavigatorSaveItem.Text = "Save Data"
         '
-        'AmddateLabel
-        '
-        AmddateLabel.AutoSize = True
-        AmddateLabel.Location = New System.Drawing.Point(222, 91)
-        AmddateLabel.Name = "AmddateLabel"
-        AmddateLabel.Size = New System.Drawing.Size(51, 13)
-        AmddateLabel.TabIndex = 1
-        AmddateLabel.Text = "amddate:"
-        '
         'AmddateDateTimePicker
         '
         Me.AmddateDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.GraphicBindingSource, "amddate", True))
@@ -189,15 +228,6 @@ Partial Class Form2
         Me.AmddateDateTimePicker.Name = "AmddateDateTimePicker"
         Me.AmddateDateTimePicker.Size = New System.Drawing.Size(200, 20)
         Me.AmddateDateTimePicker.TabIndex = 2
-        '
-        'AmduserLabel
-        '
-        AmduserLabel.AutoSize = True
-        AmduserLabel.Location = New System.Drawing.Point(222, 116)
-        AmduserLabel.Name = "AmduserLabel"
-        AmduserLabel.Size = New System.Drawing.Size(50, 13)
-        AmduserLabel.TabIndex = 3
-        AmduserLabel.Text = "amduser:"
         '
         'AmduserTextBox
         '
@@ -207,15 +237,6 @@ Partial Class Form2
         Me.AmduserTextBox.Size = New System.Drawing.Size(200, 20)
         Me.AmduserTextBox.TabIndex = 4
         '
-        'CredateLabel
-        '
-        CredateLabel.AutoSize = True
-        CredateLabel.Location = New System.Drawing.Point(222, 143)
-        CredateLabel.Name = "CredateLabel"
-        CredateLabel.Size = New System.Drawing.Size(46, 13)
-        CredateLabel.TabIndex = 5
-        CredateLabel.Text = "credate:"
-        '
         'CredateDateTimePicker
         '
         Me.CredateDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.GraphicBindingSource, "credate", True))
@@ -224,15 +245,6 @@ Partial Class Form2
         Me.CredateDateTimePicker.Size = New System.Drawing.Size(200, 20)
         Me.CredateDateTimePicker.TabIndex = 6
         '
-        'CreuserLabel
-        '
-        CreuserLabel.AutoSize = True
-        CreuserLabel.Location = New System.Drawing.Point(222, 168)
-        CreuserLabel.Name = "CreuserLabel"
-        CreuserLabel.Size = New System.Drawing.Size(45, 13)
-        CreuserLabel.TabIndex = 7
-        CreuserLabel.Text = "creuser:"
-        '
         'CreuserTextBox
         '
         Me.CreuserTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.GraphicBindingSource, "creuser", True))
@@ -240,15 +252,6 @@ Partial Class Form2
         Me.CreuserTextBox.Name = "CreuserTextBox"
         Me.CreuserTextBox.Size = New System.Drawing.Size(200, 20)
         Me.CreuserTextBox.TabIndex = 8
-        '
-        'GnameLabel
-        '
-        GnameLabel.AutoSize = True
-        GnameLabel.Location = New System.Drawing.Point(222, 194)
-        GnameLabel.Name = "GnameLabel"
-        GnameLabel.Size = New System.Drawing.Size(42, 13)
-        GnameLabel.TabIndex = 9
-        GnameLabel.Text = "gname:"
         '
         'GnameTextBox
         '
@@ -260,15 +263,6 @@ Partial Class Form2
         Me.GnameTextBox.Size = New System.Drawing.Size(200, 20)
         Me.GnameTextBox.TabIndex = 10
         '
-        'SeqnoLabel
-        '
-        SeqnoLabel.AutoSize = True
-        SeqnoLabel.Location = New System.Drawing.Point(222, 220)
-        SeqnoLabel.Name = "SeqnoLabel"
-        SeqnoLabel.Size = New System.Drawing.Size(39, 13)
-        SeqnoLabel.TabIndex = 11
-        SeqnoLabel.Text = "seqno:"
-        '
         'SeqnoTextBox
         '
         Me.SeqnoTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.GraphicBindingSource, "seqno", True))
@@ -277,15 +271,11 @@ Partial Class Form2
         Me.SeqnoTextBox.Size = New System.Drawing.Size(200, 20)
         Me.SeqnoTextBox.TabIndex = 12
         '
-        'GraphicBindingSource
-        '
-        Me.GraphicBindingSource.DataSource = GetType(InventorySystem.Graphic)
-        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(800, 485)
         Me.Controls.Add(AmddateLabel)
         Me.Controls.Add(Me.AmddateDateTimePicker)
         Me.Controls.Add(AmduserLabel)
@@ -314,7 +304,6 @@ Partial Class Form2
     Friend WithEvents GraphicBindingNavigator As BindingNavigator
     Friend WithEvents BindingNavigatorAddNewItem As ToolStripButton
     Friend WithEvents BindingNavigatorCountItem As ToolStripLabel
-    Friend WithEvents BindingNavigatorDeleteItem As ToolStripButton
     Friend WithEvents BindingNavigatorMoveFirstItem As ToolStripButton
     Friend WithEvents BindingNavigatorMovePreviousItem As ToolStripButton
     Friend WithEvents BindingNavigatorSeparator As ToolStripSeparator
