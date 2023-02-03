@@ -1,4 +1,5 @@
 ﻿Public Class FormValidation
+    Private dirty As Boolean
     Private Sub FormValidation_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Setup
         lblMessage.Text = String.Empty
@@ -43,6 +44,13 @@
         'End If
 
         'Save the data to user
+        Dim ollOk = Me.ValidateChildren(ValidationConstraints.None)
+        If ollOk Then
+            'Save the data
+
+            dirty = False
+        End If
+
 
 
     End Sub
@@ -53,19 +61,23 @@
             empID = Int32.Parse(txtID.Text)
             If empID < 1000 OrElse empID > 5000 Then
                 ErrorProviderForm.SetError(txtID, "Employee ID is not valid")
-            Else
-                ErrorProviderForm.SetError(txtID, String.Empty)
+                e.Cancel = True
             End If
         Catch ex As Exception
             ErrorProviderForm.SetError(txtID, "Employee ID is not valid")
+            e.Cancel = True
         End Try
 
+    End Sub
+    Private Sub txtID_Validated(sender As Object, e As EventArgs) Handles txtID.Validated
+        ErrorProviderForm.SetError(txtID, String.Empty)
     End Sub
 
     Private Sub txtName_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtName.Validating
         Dim empName = txtName.Text.Trim
         If empName.Length < 10 OrElse empName.Length > 50 Then
             ErrorProviderForm.SetError(txtName, "Employee name must between 10 and 50 ")
+            e.Cancel = True
         Else
             ErrorProviderForm.SetError(txtName, String.Empty)
         End If
@@ -74,4 +86,47 @@
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         Me.Close()
     End Sub
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+        TextBox3.Text = TextBox1.Text + " " + TextBox2.Text
+        dirty = True
+    End Sub
+
+    Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
+        TextBox3.Text = TextBox1.Text + " " + TextBox2.Text
+        dirty = True
+    End Sub
+
+    Private Sub FormValidation_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        If dirty Then
+            Dim result = MessageBox.Show("All your changes will be lost. Do you still want to close", My.Settings.ProductName, MessageBoxButtons.YesNo)
+            If result = DialogResult.No Then
+                e.Cancel = True
+            End If
+        End If
+    End Sub
+
+    Private Sub FormValidation_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+
+
+    End Sub
+
+    Private Sub ToggleToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ToggleToolStripMenuItem.Click
+        Me.ContextMenuStrip = ContextMenuStrip2
+    End Sub
+
+    Private Sub ToogleToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ToogleToolStripMenuItem.Click
+        Me.ContextMenuStrip = ContextMenuStrip1
+    End Sub
+
+    Private Sub TextBox3_MouseHover(sender As Object, e As EventArgs) Handles TextBox3.MouseHover
+        TextBox3.Cursor = Cursors.WaitCursor
+    End Sub
+
+    Private Sub FormValidation_HelpButtonClicked(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles MyBase.HelpButtonClicked
+        'Open a word documen
+
+    End Sub
+
+
 End Class
