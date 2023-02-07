@@ -3,6 +3,7 @@
     Private Sub FormValidation_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Setup
         lblMessage.Text = String.Empty
+        cboCity.SelectedIndex = 0
     End Sub
 
     Private Sub ShowMessage(ByVal msg As String, ByVal clr As Color)
@@ -44,7 +45,7 @@
         'End If
 
         'Save the data to user
-        Dim ollOk = Me.ValidateChildren(ValidationConstraints.None)
+        Dim ollOk = Me.ValidateChildren(ValidationConstraints.Visible)
         If ollOk Then
             'Save the data
 
@@ -128,5 +129,37 @@
 
     End Sub
 
+    Private Sub GBQual_Validated(sender As Object, e As EventArgs) Handles GBQual.Validated
+        clearError(GBQual)
+    End Sub
 
+    Private Sub GBQual_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles GBQual.Validating
+        If rbBE.Checked = False AndAlso rbME.Checked = False AndAlso Not rbMPhil.Checked AndAlso Not rbPHd.Checked Then
+            e.Cancel = True
+            ErrorProviderForm.SetError(GBQual, "Atleast one qualification is required ")
+        End If
+    End Sub
+
+    'Private Sub rbBE_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles rbBE.Validating,
+    '        rbME.Validating, rbMPhil.Validating, rbPHd.Validating
+    '    If rbBE.Checked = False AndAlso rbME.Checked = False AndAlso Not rbMPhil.Checked AndAlso Not rbPHd.Checked Then
+    '        e.Cancel = True
+    '        ErrorProviderForm.SetError(GBQual, "Atleast one qualification is required ")
+    '    End If
+    'End Sub
+
+    Private Sub cboCity_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles cboCity.Validating
+        If cboCity.SelectedIndex = 0 Then
+            e.Cancel = True
+            ErrorProviderForm.SetError(cboCity, "Atleast one city is requid")
+        End If
+    End Sub
+
+    Private Sub cboCity_Validated(sender As Object, e As EventArgs) Handles cboCity.Validated
+        clearError(cboCity)
+    End Sub
+
+    Private Sub clearError(ByVal ctl As Control)
+        ErrorProviderForm.SetError(ctl, String.Empty)
+    End Sub
 End Class

@@ -46,6 +46,7 @@ Partial Class FormValidation
         Me.LadToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToggleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
@@ -53,14 +54,20 @@ Partial Class FormValidation
         Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImagesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToggleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToogleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GBQual = New System.Windows.Forms.GroupBox()
+        Me.rbPHd = New System.Windows.Forms.RadioButton()
+        Me.rbME = New System.Windows.Forms.RadioButton()
+        Me.rbMPhil = New System.Windows.Forms.RadioButton()
+        Me.rbBE = New System.Windows.Forms.RadioButton()
+        Me.cboCity = New System.Windows.Forms.ComboBox()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.ErrorProviderForm, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.ContextMenuStrip2.SuspendLayout()
+        Me.GBQual.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -196,7 +203,7 @@ Partial Class FormValidation
         'TextBox1
         '
         Me.TextBox1.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.TextBox1.Location = New System.Drawing.Point(266, 215)
+        Me.TextBox1.Location = New System.Drawing.Point(146, 149)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(269, 20)
         Me.TextBox1.TabIndex = 4
@@ -204,7 +211,7 @@ Partial Class FormValidation
         'TextBox2
         '
         Me.TextBox2.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.TextBox2.Location = New System.Drawing.Point(266, 250)
+        Me.TextBox2.Location = New System.Drawing.Point(146, 169)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(269, 20)
         Me.TextBox2.TabIndex = 5
@@ -213,7 +220,7 @@ Partial Class FormValidation
         '
         Me.TextBox3.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.TextBox3.BackColor = System.Drawing.Color.White
-        Me.TextBox3.Location = New System.Drawing.Point(266, 295)
+        Me.TextBox3.Location = New System.Drawing.Point(146, 189)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.ReadOnly = True
         Me.TextBox3.Size = New System.Drawing.Size(269, 20)
@@ -222,7 +229,7 @@ Partial Class FormValidation
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(197, 222)
+        Me.Label4.Location = New System.Drawing.Point(77, 153)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(52, 13)
         Me.Label4.TabIndex = 7
@@ -231,7 +238,7 @@ Partial Class FormValidation
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(197, 257)
+        Me.Label5.Location = New System.Drawing.Point(77, 175)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(49, 13)
         Me.Label5.TabIndex = 8
@@ -240,7 +247,7 @@ Partial Class FormValidation
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(197, 298)
+        Me.Label6.Location = New System.Drawing.Point(77, 196)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(52, 13)
         Me.Label6.TabIndex = 9
@@ -255,26 +262,32 @@ Partial Class FormValidation
         'SubmitToolStripMenuItem
         '
         Me.SubmitToolStripMenuItem.Name = "SubmitToolStripMenuItem"
-        Me.SubmitToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SubmitToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
         Me.SubmitToolStripMenuItem.Text = "Submit"
         '
         'LadToolStripMenuItem
         '
         Me.LadToolStripMenuItem.Name = "LadToolStripMenuItem"
-        Me.LadToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.LadToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
         Me.LadToolStripMenuItem.Text = "Lad"
         '
         'DeleteToolStripMenuItem
         '
         Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
-        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
         Me.DeleteToolStripMenuItem.Text = "Delete"
         '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
+        '
+        'ToggleToolStripMenuItem
+        '
+        Me.ToggleToolStripMenuItem.Name = "ToggleToolStripMenuItem"
+        Me.ToggleToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
+        Me.ToggleToolStripMenuItem.Text = "Toggle"
         '
         'ContextMenuStrip2
         '
@@ -318,17 +331,78 @@ Partial Class FormValidation
         Me.ImagesToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
         Me.ImagesToolStripMenuItem.Text = "Images"
         '
-        'ToggleToolStripMenuItem
-        '
-        Me.ToggleToolStripMenuItem.Name = "ToggleToolStripMenuItem"
-        Me.ToggleToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.ToggleToolStripMenuItem.Text = "Toggle"
-        '
         'ToogleToolStripMenuItem
         '
         Me.ToogleToolStripMenuItem.Name = "ToogleToolStripMenuItem"
-        Me.ToogleToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ToogleToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
         Me.ToogleToolStripMenuItem.Text = "Toogle"
+        '
+        'GBQual
+        '
+        Me.GBQual.Controls.Add(Me.rbPHd)
+        Me.GBQual.Controls.Add(Me.rbME)
+        Me.GBQual.Controls.Add(Me.rbMPhil)
+        Me.GBQual.Controls.Add(Me.rbBE)
+        Me.GBQual.Location = New System.Drawing.Point(458, 149)
+        Me.GBQual.Name = "GBQual"
+        Me.GBQual.Size = New System.Drawing.Size(267, 100)
+        Me.GBQual.TabIndex = 10
+        Me.GBQual.TabStop = False
+        Me.GBQual.Text = "Qualifications"
+        '
+        'rbPHd
+        '
+        Me.rbPHd.AutoSize = True
+        Me.rbPHd.Location = New System.Drawing.Point(149, 60)
+        Me.rbPHd.Name = "rbPHd"
+        Me.rbPHd.Size = New System.Drawing.Size(46, 17)
+        Me.rbPHd.TabIndex = 3
+        Me.rbPHd.Tag = "D"
+        Me.rbPHd.Text = "PHd"
+        Me.rbPHd.UseVisualStyleBackColor = True
+        '
+        'rbME
+        '
+        Me.rbME.AutoSize = True
+        Me.rbME.Location = New System.Drawing.Point(21, 58)
+        Me.rbME.Name = "rbME"
+        Me.rbME.Size = New System.Drawing.Size(41, 17)
+        Me.rbME.TabIndex = 1
+        Me.rbME.Tag = "B"
+        Me.rbME.Text = "ME"
+        Me.rbME.UseVisualStyleBackColor = True
+        '
+        'rbMPhil
+        '
+        Me.rbMPhil.AutoSize = True
+        Me.rbMPhil.Location = New System.Drawing.Point(149, 37)
+        Me.rbMPhil.Name = "rbMPhil"
+        Me.rbMPhil.Size = New System.Drawing.Size(51, 17)
+        Me.rbMPhil.TabIndex = 2
+        Me.rbMPhil.Tag = "C"
+        Me.rbMPhil.Text = "MPhil"
+        Me.rbMPhil.UseVisualStyleBackColor = True
+        '
+        'rbBE
+        '
+        Me.rbBE.AutoSize = True
+        Me.rbBE.Location = New System.Drawing.Point(21, 35)
+        Me.rbBE.Name = "rbBE"
+        Me.rbBE.Size = New System.Drawing.Size(39, 17)
+        Me.rbBE.TabIndex = 0
+        Me.rbBE.Tag = "A"
+        Me.rbBE.Text = "BE"
+        Me.rbBE.UseVisualStyleBackColor = True
+        '
+        'cboCity
+        '
+        Me.cboCity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboCity.FormattingEnabled = True
+        Me.cboCity.Items.AddRange(New Object() {"Choose ----", "Mysore", "Bengaluru", "Mangalore", "Shimoga"})
+        Me.cboCity.Location = New System.Drawing.Point(146, 285)
+        Me.cboCity.Name = "cboCity"
+        Me.cboCity.Size = New System.Drawing.Size(269, 21)
+        Me.cboCity.TabIndex = 11
         '
         'FormValidation
         '
@@ -340,6 +414,8 @@ Partial Class FormValidation
         Me.CancelButton = Me.btnExit
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.ContextMenuStrip = Me.ContextMenuStrip1
+        Me.Controls.Add(Me.cboCity)
+        Me.Controls.Add(Me.GBQual)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
@@ -362,6 +438,8 @@ Partial Class FormValidation
         CType(Me.ErrorProviderForm, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContextMenuStrip1.ResumeLayout(False)
         Me.ContextMenuStrip2.ResumeLayout(False)
+        Me.GBQual.ResumeLayout(False)
+        Me.GBQual.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -399,4 +477,10 @@ Partial Class FormValidation
     Friend WithEvents ImagesToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToggleToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToogleToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents GBQual As GroupBox
+    Friend WithEvents rbPHd As RadioButton
+    Friend WithEvents rbME As RadioButton
+    Friend WithEvents rbMPhil As RadioButton
+    Friend WithEvents rbBE As RadioButton
+    Friend WithEvents cboCity As ComboBox
 End Class

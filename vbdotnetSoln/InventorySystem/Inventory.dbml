@@ -16,7 +16,7 @@
       <Column Name="orderDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="custID" Type="System.String" DbType="Char(10) NOT NULL" CanBeNull="false" />
       <Column Name="orderTotal" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
-      <Association Name="Customer_CustOrder" Member="UKCustomer" ThisKey="custID" OtherKey="custID" Type="UKCustomer" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="UKCustomer_CustOrder" Member="UKCustomer" ThisKey="custID" OtherKey="custID" Type="UKCustomer" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.Customer" Member="UKCustomers">
@@ -24,7 +24,16 @@
       <Column Name="custID" Type="System.String" DbType="Char(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="custName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="custCity" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
-      <Association Name="Customer_CustOrder" Member="CustOrders" ThisKey="custID" OtherKey="custID" Type="CustOrder" />
+      <Association Name="UKCustomer_CustOrder" Member="CustOrders" ThisKey="custID" OtherKey="custID" Type="CustOrder" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Product" Member="Products">
+    <Type Name="Product">
+      <Column Name="pid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="pname" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="pcost" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="pqty" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="conn" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
     </Type>
   </Table>
 </Database>

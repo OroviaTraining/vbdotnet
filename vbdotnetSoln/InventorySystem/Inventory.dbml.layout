@@ -2,10 +2,10 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Inventory">
   <DataContextMoniker Name="/InventoryDataContext" />
   <nestedChildShapes>
-    <classShape Id="b5c92a9f-f5c6-4544-af59-7e434ca940c0" absoluteBounds="8.75, 1.25, 2, 1.9631982421875">
+    <classShape Id="b5c92a9f-f5c6-4544-af59-7e434ca940c0" absoluteBounds="0.75, 3, 2, 1.9631982421875">
       <DataClassMoniker Name="/InventoryDataContext/Graphic" />
       <nestedChildShapes>
-        <elementListCompartment Id="28dc4866-5cfc-43f1-a811-ea65c213442d" absoluteBounds="8.765, 1.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="28dc4866-5cfc-43f1-a811-ea65c213442d" absoluteBounds="0.76500000000000057, 3.46, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="65338448-7e1d-4e13-a8ac-b9401574c87f" absoluteBounds="3.5, 1, 2, 1.5785953776041663">
@@ -21,11 +21,17 @@
       </nestedChildShapes>
     </classShape>
     <associationConnector edgePoints="[(2.75 : 1.69314697265625); (3.5 : 1.69314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/InventoryDataContext/UKCustomer/Customer_CustOrder" />
+      <AssociationMoniker Name="/InventoryDataContext/UKCustomer/UKCustomer_CustOrder" />
       <nodes>
         <classShapeMoniker Id="9d0ad73c-0ee6-451f-842f-10e69a56b2c2" />
         <classShapeMoniker Id="65338448-7e1d-4e13-a8ac-b9401574c87f" />
       </nodes>
     </associationConnector>
+    <classShape Id="017932f2-2336-4736-bb63-2ba18bad4dbb" absoluteBounds="3.625, 2.875, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/InventoryDataContext/Product" />
+      <nestedChildShapes>
+        <elementListCompartment Id="695e0651-be4a-4802-acca-fd1030f5f4f8" absoluteBounds="3.6399999999999997, 3.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

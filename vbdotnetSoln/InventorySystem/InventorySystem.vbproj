@@ -128,6 +128,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Order.vb" />
+    <Compile Include="PlayGround.Designer.vb">
+      <DependentUpon>PlayGround.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PlayGround.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
@@ -150,6 +156,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlayGround.resx">
+      <DependentUpon>PlayGround.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

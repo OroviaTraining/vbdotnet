@@ -49,6 +49,12 @@ Partial Public Class InventoryDataContext
     End Sub
   Partial Private Sub DeleteUKCustomer(instance As UKCustomer)
     End Sub
+  Partial Private Sub InsertProduct(instance As Product)
+    End Sub
+  Partial Private Sub UpdateProduct(instance As Product)
+    End Sub
+  Partial Private Sub DeleteProduct(instance As Product)
+    End Sub
   #End Region
 	
 	Public Sub New()
@@ -91,6 +97,12 @@ Partial Public Class InventoryDataContext
 	Public ReadOnly Property UKCustomers() As System.Data.Linq.Table(Of UKCustomer)
 		Get
 			Return Me.GetTable(Of UKCustomer)
+		End Get
+	End Property
+	
+	Public ReadOnly Property Products() As System.Data.Linq.Table(Of Product)
+		Get
+			Return Me.GetTable(Of Product)
 		End Get
 	End Property
 End Class
@@ -385,7 +397,7 @@ Partial Public Class CustOrder
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Customer_CustOrder", Storage:="_UKCustomer", ThisKey:="custID", OtherKey:="custID", IsForeignKey:=true, DeleteOnNull:=true, DeleteRule:="CASCADE")>  _
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="UKCustomer_CustOrder", Storage:="_UKCustomer", ThisKey:="custID", OtherKey:="custID", IsForeignKey:=true, DeleteOnNull:=true, DeleteRule:="CASCADE")>  _
 	Public Property UKCustomer() As UKCustomer
 		Get
 			Return Me._UKCustomer.Entity
@@ -521,7 +533,7 @@ Partial Public Class UKCustomer
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Customer_CustOrder", Storage:="_CustOrders", ThisKey:="custID", OtherKey:="custID")>  _
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="UKCustomer_CustOrder", Storage:="_CustOrders", ThisKey:="custID", OtherKey:="custID")>  _
 	Public Property CustOrders() As EntitySet(Of CustOrder)
 		Get
 			Return Me._CustOrders
@@ -557,5 +569,157 @@ Partial Public Class UKCustomer
 	Private Sub detach_CustOrders(ByVal entity As CustOrder)
 		Me.SendPropertyChanging
 		entity.UKCustomer = Nothing
+	End Sub
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Product")>  _
+Partial Public Class Product
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _pid As Integer
+	
+	Private _pname As String
+	
+	Private _pcost As Decimal
+	
+	Private _pqty As Integer
+	
+	Private _conn As System.Data.Linq.Binary
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OnpidChanging(value As Integer)
+    End Sub
+    Partial Private Sub OnpidChanged()
+    End Sub
+    Partial Private Sub OnpnameChanging(value As String)
+    End Sub
+    Partial Private Sub OnpnameChanged()
+    End Sub
+    Partial Private Sub OnpcostChanging(value As Decimal)
+    End Sub
+    Partial Private Sub OnpcostChanged()
+    End Sub
+    Partial Private Sub OnpqtyChanging(value As Integer)
+    End Sub
+    Partial Private Sub OnpqtyChanged()
+    End Sub
+    Partial Private Sub OnconnChanging(value As System.Data.Linq.Binary)
+    End Sub
+    Partial Private Sub OnconnChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		OnCreated
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_pid", AutoSync:=AutoSync.OnInsert, DbType:="Int NOT NULL IDENTITY", IsPrimaryKey:=true, IsDbGenerated:=true, UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property pid() As Integer
+		Get
+			Return Me._pid
+		End Get
+		Set
+			If ((Me._pid = value)  _
+						= false) Then
+				Me.OnpidChanging(value)
+				Me.SendPropertyChanging
+				Me._pid = value
+				Me.SendPropertyChanged("pid")
+				Me.OnpidChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_pname", DbType:="VarChar(100) NOT NULL", CanBeNull:=false, UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property pname() As String
+		Get
+			Return Me._pname
+		End Get
+		Set
+			If (String.Equals(Me._pname, value) = false) Then
+				Me.OnpnameChanging(value)
+				Me.SendPropertyChanging
+				Me._pname = value
+				Me.SendPropertyChanged("pname")
+				Me.OnpnameChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_pcost", DbType:="Decimal(10,2) NOT NULL", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property pcost() As Decimal
+		Get
+			Return Me._pcost
+		End Get
+		Set
+			If ((Me._pcost = value)  _
+						= false) Then
+				Me.OnpcostChanging(value)
+				Me.SendPropertyChanging
+				Me._pcost = value
+				Me.SendPropertyChanged("pcost")
+				Me.OnpcostChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_pqty", DbType:="Int NOT NULL", UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property pqty() As Integer
+		Get
+			Return Me._pqty
+		End Get
+		Set
+			If ((Me._pqty = value)  _
+						= false) Then
+				Me.OnpqtyChanging(value)
+				Me.SendPropertyChanging
+				Me._pqty = value
+				Me.SendPropertyChanged("pqty")
+				Me.OnpqtyChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_conn", AutoSync:=AutoSync.Always, DbType:="rowversion NOT NULL", CanBeNull:=false, IsDbGenerated:=true, IsVersion:=true, UpdateCheck:=UpdateCheck.Never)>  _
+	Public Property conn() As System.Data.Linq.Binary
+		Get
+			Return Me._conn
+		End Get
+		Set
+			If (Object.Equals(Me._conn, value) = false) Then
+				Me.OnconnChanging(value)
+				Me.SendPropertyChanging
+				Me._conn = value
+				Me.SendPropertyChanged("conn")
+				Me.OnconnChanged
+			End If
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
 	End Sub
 End Class
