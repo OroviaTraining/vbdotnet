@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Inventory" Class="InventoryDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=OROVIA-LTP-XX;Initial Catalog=Inventory;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" SettingsObjectName="InventorySystem.My.MySettings" SettingsPropertyName="InventoryConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost;Initial Catalog=Inventory;Integrated Security=True" SettingsObjectName="InventorySystem.My.MySettings" SettingsPropertyName="ConnStr" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Graphic" Member="Graphics">
     <Type Name="Graphic">
       <Column Name="seqno" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -25,15 +25,6 @@
       <Column Name="custName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="custCity" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
       <Association Name="UKCustomer_CustOrder" Member="CustOrders" ThisKey="custID" OtherKey="custID" Type="CustOrder" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Product" Member="Products">
-    <Type Name="Product">
-      <Column Name="pid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="pname" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="pcost" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
-      <Column Name="pqty" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="conn" Type="System.Data.Linq.Binary" DbType="rowversion NOT NULL" CanBeNull="false" IsVersion="true" />
     </Type>
   </Table>
 </Database>

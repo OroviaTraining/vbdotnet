@@ -94,6 +94,12 @@
     <Compile Include="Form3.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormDataBinding.Designer.vb">
+      <DependentUpon>FormDataBinding.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormDataBinding.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormValidation.Designer.vb">
       <DependentUpon>FormValidation.vb</DependentUpon>
     </Compile>
@@ -127,6 +133,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Northwind.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Northwind.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Order.vb" />
     <Compile Include="PlayGround.Designer.vb">
       <DependentUpon>PlayGround.vb</DependentUpon>
@@ -144,6 +155,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form3.resx">
       <DependentUpon>Form3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDataBinding.resx">
+      <DependentUpon>FormDataBinding.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormValidation.resx">
       <DependentUpon>FormValidation.vb</DependentUpon>
@@ -174,6 +188,7 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\DataSources\Category.datasource" />
     <None Include="My Project\DataSources\Graphic.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -186,6 +201,14 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Northwind.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Northwind.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Northwind.dbml.layout">
+      <DependentUpon>Northwind.dbml</DependentUpon>
+    </None>
     <None Include="Resources\red.png" />
   </ItemGroup>
   <ItemGroup>

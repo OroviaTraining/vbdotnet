@@ -162,4 +162,52 @@
     Private Sub clearError(ByVal ctl As Control)
         ErrorProviderForm.SetError(ctl, String.Empty)
     End Sub
+
+    Private Sub GroupBox1_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles GroupBox1.Validating
+        Dim cnt As Byte
+        'If CheckBox1.Checked = True Then cnt += 1
+        'If CheckBox2.Checked = True Then cnt += 1
+        'If CheckBox3.Checked = True Then cnt += 1
+        'If CheckBox4.Checked = True Then cnt += 1
+        'If CheckBox5.Checked = True Then cnt += 1
+        'If CheckBox6.Checked = True Then cnt += 1
+        'If CheckBox7.Checked = True Then cnt += 1
+        'If CheckBox8.Checked = True Then cnt += 1
+
+        ''Atleast 2 must be selected
+        'If cnt < 2 Then
+        '    e.Cancel = True
+        '    ErrorProviderForm.SetError(GroupBox1, "Atleast 2 hobbies are required")
+        'End If
+
+        'We need all checkboxes in this groupbox
+        Dim chk As CheckBox
+        For Each ctl In GroupBox1.Controls
+            If TypeOf ctl Is CheckBox Then
+                chk = CType(ctl, CheckBox)
+                If chk.Checked Then cnt += 1
+            End If
+        Next
+        'Atleast 2 must be selected
+        If cnt < 2 Then
+            e.Cancel = True
+            ErrorProviderForm.SetError(GroupBox1, "Atleast 2 hobbies are required")
+        End If
+    End Sub
+
+    Private Sub GroupBox1_Validated(sender As Object, e As EventArgs) Handles GroupBox1.Validated
+        clearError(GroupBox1)
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        For Each ctl In Me.Controls
+            If TypeOf ctl Is CheckBox OrElse TypeOf ctl Is RadioButton Then
+                CType(ctl, CheckBox).Checked = False
+            ElseIf TypeOf ctl Is TextBox Then
+                CType(ctl, TextBox).Text = String.Empty
+            ElseIf TypeOf ctl Is ComboBox Then
+                CType(ctl, ComboBox).SelectedIndex = 0
+            End If
+        Next
+    End Sub
 End Class

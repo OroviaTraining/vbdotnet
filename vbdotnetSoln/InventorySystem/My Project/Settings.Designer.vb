@@ -75,17 +75,6 @@ Namespace My
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=OROVIA-LTP-XX;Initial Catalog=Inventory;Integrated Security=True;Conn"& _ 
-            "ect Timeout=30;Encrypt=False;TrustServerCertificate=False")>  _
-        Public ReadOnly Property InventoryConnectionString() As String
-            Get
-                Return CType(Me("InventoryConnectionString"),String)
-            End Get
-        End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("Red")>  _
         Public ReadOnly Property ErrorMessageColor() As Global.System.Drawing.Color
             Get
@@ -99,6 +88,16 @@ Namespace My
         Public ReadOnly Property SuccessMessageColor() As Global.System.Drawing.Color
             Get
                 Return CType(Me("SuccessMessageColor"),Global.System.Drawing.Color)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=Northwind;Integrated Security=True")>  _
+        Public ReadOnly Property NothWindConnStr() As String
+            Get
+                Return CType(Me("NothWindConnStr"),String)
             End Get
         End Property
     End Class
