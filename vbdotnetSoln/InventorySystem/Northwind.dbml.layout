@@ -21,5 +21,24 @@
         <classShapeMoniker Id="bbf74906-8bc8-4748-b615-fbb488f48104" />
       </nodes>
     </associationConnector>
+    <classShape Id="73b5c3ab-27b6-45ef-8914-47db7a778f60" absoluteBounds="3.5, 5.5, 2, 1.3862939453125">
+      <DataClassMoniker Name="/NorthwindDataContext/Territory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e2fa6e12-c6c1-4643-9092-a50c1f86436e" absoluteBounds="3.515, 5.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="44806df7-cb2a-4406-be6f-e1da89b1322a" absoluteBounds="2.375, 3.5, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/NorthwindDataContext/Region" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6489a189-a735-4064-ad43-013290ff0fe9" absoluteBounds="2.39, 3.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.9375 : 4.69399251302083); (3.9375 : 5.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/NorthwindDataContext/Region/Region_Territory" />
+      <nodes>
+        <classShapeMoniker Id="44806df7-cb2a-4406-be6f-e1da89b1322a" />
+        <classShapeMoniker Id="73b5c3ab-27b6-45ef-8914-47db7a778f60" />
+      </nodes>
+    </associationConnector>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

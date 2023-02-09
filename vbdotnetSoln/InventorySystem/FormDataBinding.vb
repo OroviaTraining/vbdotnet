@@ -19,7 +19,20 @@ Public Class FormDataBinding
             .DisplayMember = "ProductName"
             .ValueMember = "ProductID"
         End With
+
+        'Step 1. Populate with regions
+        Dim regions = dtx.Regions.ToList
+        regions.Insert(0, New Region With {.RegionID = 0, .RegionDescription = "Choose .."})
+        With cboRegions
+            .DataSource = regions
+            .DisplayMember = "RegionDescription"
+            .ValueMember = "RegionID"
+        End With
+
+
     End Sub
+
+
 
     Private Sub cboCategory_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cboCategory.SelectionChangeCommitted
         'get the index of the item selected
@@ -44,5 +57,32 @@ Public Class FormDataBinding
 
         'Get the category object
         Dim catgObj = CType(cboProducts.SelectedItem, Product)
+    End Sub
+
+    Private Sub cboRegions_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cboRegions.SelectionChangeCommitted
+        'Show territory
+        Dim regionID = CType(cboRegions.SelectedValue, Int32)
+        Dim terrories = dtx.TerritoryByRegion(regionID).ToList
+        'Add dummy record
+        terrories.Insert(0, New TerritoryByRegionResult With {.TerritoryID = 0, .TerritoryDescription = "Choose ...."})
+        With cboTerri
+            .DataSource = terrories
+            .DisplayMember = "TerritoryDescription"
+            .ValueMember = "TerritoryID"
+        End With
+
+        'Clear employees
+        cboEmployees.DataSource = Nothing
+    End Sub
+
+    Private Sub cboTerri_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles cboTerri.SelectionChangeCommitted
+        'Show all employees in this territory
+        Dim terID = cboTerri.SelectedValue.ToString
+        Dim employees = dtx.EmployeeByTerritory(terID).ToList
+        With cboEmployees
+            .DataSource = employees
+            .DisplayMember = "EmployeeName"
+            .ValueMember = "EmployeeID"
+        End With
     End Sub
 End Class

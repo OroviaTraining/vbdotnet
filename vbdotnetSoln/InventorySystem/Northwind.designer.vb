@@ -43,6 +43,18 @@ Partial Public Class NorthwindDataContext
     End Sub
   Partial Private Sub DeleteProduct(instance As Product)
     End Sub
+  Partial Private Sub InsertTerritory(instance As Territory)
+    End Sub
+  Partial Private Sub UpdateTerritory(instance As Territory)
+    End Sub
+  Partial Private Sub DeleteTerritory(instance As Territory)
+    End Sub
+  Partial Private Sub InsertRegion(instance As Region)
+    End Sub
+  Partial Private Sub UpdateRegion(instance As Region)
+    End Sub
+  Partial Private Sub DeleteRegion(instance As Region)
+    End Sub
   #End Region
 	
 	Public Sub New()
@@ -81,6 +93,30 @@ Partial Public Class NorthwindDataContext
 			Return Me.GetTable(Of Product)
 		End Get
 	End Property
+	
+	Public ReadOnly Property Territories() As System.Data.Linq.Table(Of Territory)
+		Get
+			Return Me.GetTable(Of Territory)
+		End Get
+	End Property
+	
+	Public ReadOnly Property Regions() As System.Data.Linq.Table(Of Region)
+		Get
+			Return Me.GetTable(Of Region)
+		End Get
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.EmployeeByTerritory")>  _
+	Public Function EmployeeByTerritory(<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="TerritoryID", DbType:="NVarChar(20)")> ByVal territoryID As String) As ISingleResult(Of EmployeeByTerritoryResult)
+		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), territoryID)
+		Return CType(result.ReturnValue,ISingleResult(Of EmployeeByTerritoryResult))
+	End Function
+	
+	<Global.System.Data.Linq.Mapping.FunctionAttribute(Name:="dbo.TerritoryByRegion")>  _
+	Public Function TerritoryByRegion(<Global.System.Data.Linq.Mapping.ParameterAttribute(Name:="RegionID", DbType:="Int")> ByVal regionID As System.Nullable(Of Integer)) As ISingleResult(Of TerritoryByRegionResult)
+		Dim result As IExecuteResult = Me.ExecuteMethodCall(Me, CType(MethodInfo.GetCurrentMethod,MethodInfo), regionID)
+		Return CType(result.ReturnValue,ISingleResult(Of TerritoryByRegionResult))
+	End Function
 End Class
 
 <Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Categories")>  _
@@ -527,4 +563,350 @@ Partial Public Class Product
 			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
 		End If
 	End Sub
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Territories")>  _
+Partial Public Class Territory
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _TerritoryID As String
+	
+	Private _TerritoryDescription As String
+	
+	Private _RegionID As Integer
+	
+	Private _Region As EntityRef(Of Region)
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OnTerritoryIDChanging(value As String)
+    End Sub
+    Partial Private Sub OnTerritoryIDChanged()
+    End Sub
+    Partial Private Sub OnTerritoryDescriptionChanging(value As String)
+    End Sub
+    Partial Private Sub OnTerritoryDescriptionChanged()
+    End Sub
+    Partial Private Sub OnRegionIDChanging(value As Integer)
+    End Sub
+    Partial Private Sub OnRegionIDChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		Me._Region = CType(Nothing, EntityRef(Of Region))
+		OnCreated
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TerritoryID", DbType:="NVarChar(20) NOT NULL", CanBeNull:=false, IsPrimaryKey:=true)>  _
+	Public Property TerritoryID() As String
+		Get
+			Return Me._TerritoryID
+		End Get
+		Set
+			If (String.Equals(Me._TerritoryID, value) = false) Then
+				Me.OnTerritoryIDChanging(value)
+				Me.SendPropertyChanging
+				Me._TerritoryID = value
+				Me.SendPropertyChanged("TerritoryID")
+				Me.OnTerritoryIDChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TerritoryDescription", DbType:="NChar(50) NOT NULL", CanBeNull:=false)>  _
+	Public Property TerritoryDescription() As String
+		Get
+			Return Me._TerritoryDescription
+		End Get
+		Set
+			If (String.Equals(Me._TerritoryDescription, value) = false) Then
+				Me.OnTerritoryDescriptionChanging(value)
+				Me.SendPropertyChanging
+				Me._TerritoryDescription = value
+				Me.SendPropertyChanged("TerritoryDescription")
+				Me.OnTerritoryDescriptionChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_RegionID", DbType:="Int NOT NULL")>  _
+	Public Property RegionID() As Integer
+		Get
+			Return Me._RegionID
+		End Get
+		Set
+			If ((Me._RegionID = value)  _
+						= false) Then
+				If Me._Region.HasLoadedOrAssignedValue Then
+					Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
+				End If
+				Me.OnRegionIDChanging(value)
+				Me.SendPropertyChanging
+				Me._RegionID = value
+				Me.SendPropertyChanged("RegionID")
+				Me.OnRegionIDChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Region_Territory", Storage:="_Region", ThisKey:="RegionID", OtherKey:="RegionID", IsForeignKey:=true)>  _
+	Public Property Region() As Region
+		Get
+			Return Me._Region.Entity
+		End Get
+		Set
+			Dim previousValue As Region = Me._Region.Entity
+			If ((Object.Equals(previousValue, value) = false)  _
+						OrElse (Me._Region.HasLoadedOrAssignedValue = false)) Then
+				Me.SendPropertyChanging
+				If ((previousValue Is Nothing)  _
+							= false) Then
+					Me._Region.Entity = Nothing
+					previousValue.Territories.Remove(Me)
+				End If
+				Me._Region.Entity = value
+				If ((value Is Nothing)  _
+							= false) Then
+					value.Territories.Add(Me)
+					Me._RegionID = value.RegionID
+				Else
+					Me._RegionID = CType(Nothing, Integer)
+				End If
+				Me.SendPropertyChanged("Region")
+			End If
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Region")>  _
+Partial Public Class Region
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _RegionID As Integer
+	
+	Private _RegionDescription As String
+	
+	Private _Territories As EntitySet(Of Territory)
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OnRegionIDChanging(value As Integer)
+    End Sub
+    Partial Private Sub OnRegionIDChanged()
+    End Sub
+    Partial Private Sub OnRegionDescriptionChanging(value As String)
+    End Sub
+    Partial Private Sub OnRegionDescriptionChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		Me._Territories = New EntitySet(Of Territory)(AddressOf Me.attach_Territories, AddressOf Me.detach_Territories)
+		OnCreated
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_RegionID", DbType:="Int NOT NULL", IsPrimaryKey:=true)>  _
+	Public Property RegionID() As Integer
+		Get
+			Return Me._RegionID
+		End Get
+		Set
+			If ((Me._RegionID = value)  _
+						= false) Then
+				Me.OnRegionIDChanging(value)
+				Me.SendPropertyChanging
+				Me._RegionID = value
+				Me.SendPropertyChanged("RegionID")
+				Me.OnRegionIDChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_RegionDescription", DbType:="NChar(50) NOT NULL", CanBeNull:=false)>  _
+	Public Property RegionDescription() As String
+		Get
+			Return Me._RegionDescription
+		End Get
+		Set
+			If (String.Equals(Me._RegionDescription, value) = false) Then
+				Me.OnRegionDescriptionChanging(value)
+				Me.SendPropertyChanging
+				Me._RegionDescription = value
+				Me.SendPropertyChanged("RegionDescription")
+				Me.OnRegionDescriptionChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Region_Territory", Storage:="_Territories", ThisKey:="RegionID", OtherKey:="RegionID")>  _
+	Public Property Territories() As EntitySet(Of Territory)
+		Get
+			Return Me._Territories
+		End Get
+		Set
+			Me._Territories.Assign(value)
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
+	
+	Private Sub attach_Territories(ByVal entity As Territory)
+		Me.SendPropertyChanging
+		entity.Region = Me
+	End Sub
+	
+	Private Sub detach_Territories(ByVal entity As Territory)
+		Me.SendPropertyChanging
+		entity.Region = Nothing
+	End Sub
+End Class
+
+Partial Public Class EmployeeByTerritoryResult
+	
+	Private _EmployeeID As Integer
+	
+	Private _Title As String
+	
+	Private _LastName As String
+	
+	Private _FirstName As String
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_EmployeeID", DbType:="Int NOT NULL")>  _
+	Public Property EmployeeID() As Integer
+		Get
+			Return Me._EmployeeID
+		End Get
+		Set
+			If ((Me._EmployeeID = value)  _
+						= false) Then
+				Me._EmployeeID = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_Title", DbType:="NVarChar(30)")>  _
+	Public Property Title() As String
+		Get
+			Return Me._Title
+		End Get
+		Set
+			If (String.Equals(Me._Title, value) = false) Then
+				Me._Title = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_LastName", DbType:="NVarChar(20) NOT NULL", CanBeNull:=false)>  _
+	Public Property LastName() As String
+		Get
+			Return Me._LastName
+		End Get
+		Set
+			If (String.Equals(Me._LastName, value) = false) Then
+				Me._LastName = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_FirstName", DbType:="NVarChar(10) NOT NULL", CanBeNull:=false)>  _
+	Public Property FirstName() As String
+		Get
+			Return Me._FirstName
+		End Get
+		Set
+			If (String.Equals(Me._FirstName, value) = false) Then
+				Me._FirstName = value
+			End If
+		End Set
+	End Property
+End Class
+
+Partial Public Class TerritoryByRegionResult
+	
+	Private _TerritoryID As String
+	
+	Private _TerritoryDescription As String
+	
+	Public Sub New()
+		MyBase.New
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TerritoryID", DbType:="NVarChar(20) NOT NULL", CanBeNull:=false)>  _
+	Public Property TerritoryID() As String
+		Get
+			Return Me._TerritoryID
+		End Get
+		Set
+			If (String.Equals(Me._TerritoryID, value) = false) Then
+				Me._TerritoryID = value
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_TerritoryDescription", DbType:="NChar(50) NOT NULL", CanBeNull:=false)>  _
+	Public Property TerritoryDescription() As String
+		Get
+			Return Me._TerritoryDescription
+		End Get
+		Set
+			If (String.Equals(Me._TerritoryDescription, value) = false) Then
+				Me._TerritoryDescription = value
+			End If
+		End Set
+	End Property
 End Class
