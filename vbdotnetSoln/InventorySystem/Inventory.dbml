@@ -27,4 +27,17 @@
       <Association Name="UKCustomer_CustOrder" Member="CustOrders" ThisKey="custID" OtherKey="custID" Type="CustOrder" />
     </Type>
   </Table>
+  <Table Name="dbo.DbTable" Member="DbTables">
+    <Type Name="DbTable">
+      <Column Name="seqNo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tblName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="type1" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="type2" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="type3" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="creDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="creUser" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="amdDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="amdUser" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
 </Database>

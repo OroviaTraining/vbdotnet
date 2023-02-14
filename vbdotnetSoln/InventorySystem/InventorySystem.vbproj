@@ -109,6 +109,12 @@
     <Compile Include="FormDataBinding.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormTable.Designer.vb">
+      <DependentUpon>FormTable.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormTable.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormValidation.Designer.vb">
       <DependentUpon>FormValidation.vb</DependentUpon>
     </Compile>
@@ -118,6 +124,9 @@
     <Compile Include="Inventory.designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>Inventory.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory.vb">
       <DependentUpon>Inventory.dbml</DependentUpon>
     </Compile>
     <Compile Include="MainForm.Designer.vb">
@@ -174,6 +183,9 @@
     <EmbeddedResource Include="FormDataBinding.resx">
       <DependentUpon>FormDataBinding.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormTable.resx">
+      <DependentUpon>FormTable.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormValidation.resx">
       <DependentUpon>FormValidation.vb</DependentUpon>
     </EmbeddedResource>
@@ -204,6 +216,7 @@
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
     <None Include="My Project\DataSources\Category.datasource" />
+    <None Include="My Project\DataSources\DbTable.datasource" />
     <None Include="My Project\DataSources\Graphic.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

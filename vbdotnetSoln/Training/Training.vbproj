@@ -86,6 +86,12 @@
     <Compile Include="Form2.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormCrud.Designer.vb">
+      <DependentUpon>FormCrud.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCrud.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormGraphs.Designer.vb">
       <DependentUpon>FormGraphs.vb</DependentUpon>
     </Compile>
