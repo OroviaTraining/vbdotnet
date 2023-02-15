@@ -25,10 +25,10 @@ Partial Class FormTable
         Me.components = New System.ComponentModel.Container()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.LabelMessage = New System.Windows.Forms.Label()
+        Me.btnSave = New System.Windows.Forms.Button()
         Me.DbTableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DbTableDataGridView = New System.Windows.Forms.DataGridView()
-        Me.btnSave = New System.Windows.Forms.Button()
-        Me.LabelMessage = New System.Windows.Forms.Label()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewCheckBoxColumn1 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
@@ -59,21 +59,14 @@ Partial Class FormTable
         Me.Panel2.Size = New System.Drawing.Size(984, 42)
         Me.Panel2.TabIndex = 1
         '
-        'DbTableBindingSource
+        'LabelMessage
         '
-        Me.DbTableBindingSource.DataSource = GetType(InventorySystem.DbTable)
-        '
-        'DbTableDataGridView
-        '
-        Me.DbTableDataGridView.AutoGenerateColumns = False
-        Me.DbTableDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DbTableDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewCheckBoxColumn1, Me.DataGridViewCheckBoxColumn2, Me.DataGridViewCheckBoxColumn3, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4})
-        Me.DbTableDataGridView.DataSource = Me.DbTableBindingSource
-        Me.DbTableDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DbTableDataGridView.Location = New System.Drawing.Point(0, 48)
-        Me.DbTableDataGridView.Name = "DbTableDataGridView"
-        Me.DbTableDataGridView.Size = New System.Drawing.Size(984, 360)
-        Me.DbTableDataGridView.TabIndex = 3
+        Me.LabelMessage.AutoSize = True
+        Me.LabelMessage.Location = New System.Drawing.Point(48, 17)
+        Me.LabelMessage.Name = "LabelMessage"
+        Me.LabelMessage.Size = New System.Drawing.Size(39, 13)
+        Me.LabelMessage.TabIndex = 1
+        Me.LabelMessage.Text = "Label1"
         '
         'btnSave
         '
@@ -85,14 +78,22 @@ Partial Class FormTable
         Me.btnSave.Text = "Save"
         Me.btnSave.UseVisualStyleBackColor = True
         '
-        'LabelMessage
+        'DbTableBindingSource
         '
-        Me.LabelMessage.AutoSize = True
-        Me.LabelMessage.Location = New System.Drawing.Point(48, 17)
-        Me.LabelMessage.Name = "LabelMessage"
-        Me.LabelMessage.Size = New System.Drawing.Size(39, 13)
-        Me.LabelMessage.TabIndex = 1
-        Me.LabelMessage.Text = "Label1"
+        Me.DbTableBindingSource.DataSource = GetType(InventorySystem.DbTable)
+        '
+        'DbTableDataGridView
+        '
+        Me.DbTableDataGridView.AutoGenerateColumns = False
+        Me.DbTableDataGridView.BackgroundColor = System.Drawing.Color.Gray
+        Me.DbTableDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DbTableDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewCheckBoxColumn1, Me.DataGridViewCheckBoxColumn2, Me.DataGridViewCheckBoxColumn3, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4})
+        Me.DbTableDataGridView.DataSource = Me.DbTableBindingSource
+        Me.DbTableDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DbTableDataGridView.Location = New System.Drawing.Point(0, 48)
+        Me.DbTableDataGridView.Name = "DbTableDataGridView"
+        Me.DbTableDataGridView.Size = New System.Drawing.Size(984, 360)
+        Me.DbTableDataGridView.TabIndex = 3
         '
         'DataGridViewTextBoxColumn1
         '

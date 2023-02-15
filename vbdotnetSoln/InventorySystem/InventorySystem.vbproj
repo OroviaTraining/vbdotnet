@@ -109,6 +109,18 @@
     <Compile Include="FormDataBinding.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormGrid.Designer.vb">
+      <DependentUpon>FormGrid.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormGrid.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProductDetails.Designer.vb">
+      <DependentUpon>FormProductDetails.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormProductDetails.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormTable.Designer.vb">
       <DependentUpon>FormTable.vb</DependentUpon>
     </Compile>
@@ -183,6 +195,12 @@
     <EmbeddedResource Include="FormDataBinding.resx">
       <DependentUpon>FormDataBinding.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormGrid.resx">
+      <DependentUpon>FormGrid.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProductDetails.resx">
+      <DependentUpon>FormProductDetails.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormTable.resx">
       <DependentUpon>FormTable.vb</DependentUpon>
     </EmbeddedResource>
@@ -218,6 +236,7 @@
     <None Include="My Project\DataSources\Category.datasource" />
     <None Include="My Project\DataSources\DbTable.datasource" />
     <None Include="My Project\DataSources\Graphic.datasource" />
+    <None Include="My Project\DataSources\Product.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
