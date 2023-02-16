@@ -37,6 +37,11 @@ InventorySystem
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:InventorySystem.My.Resources.Resources.Close_2_icon">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:InventorySystem.My.Resources.Resources.logout_icon">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.

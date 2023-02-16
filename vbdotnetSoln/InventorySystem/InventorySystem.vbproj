@@ -270,5 +270,8 @@
   <ItemGroup>
     <None Include="Resources\angry-bird-green-icon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close-2-icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

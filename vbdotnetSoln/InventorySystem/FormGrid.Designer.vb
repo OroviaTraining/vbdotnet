@@ -24,32 +24,87 @@ Partial Class FormGrid
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.ProductDataGridView = New System.Windows.Forms.DataGridView()
+        Me.PanelTop = New System.Windows.Forms.Panel()
+        Me.PanelBottom = New System.Windows.Forms.Panel()
+        Me.LabelMessage = New System.Windows.Forms.Label()
+        Me.ButtonUpdate = New System.Windows.Forms.Button()
+        Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.ProductBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CategoryID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewCheckBoxColumn1 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.ProductBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.PanelTop = New System.Windows.Forms.Panel()
-        Me.PanelBottom = New System.Windows.Forms.Panel()
-        Me.ButtonUpdate = New System.Windows.Forms.Button()
-        Me.LabelMessage = New System.Windows.Forms.Label()
+        Me.QuantityPerUnit = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.colEdit = New System.Windows.Forms.DataGridViewLinkColumn()
+        Me.colDelete = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.btnDelete = New System.Windows.Forms.DataGridViewButtonColumn()
         CType(Me.ProductDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ProductBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelBottom.SuspendLayout()
+        CType(Me.ProductBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ProductDataGridView
         '
         Me.ProductDataGridView.AutoGenerateColumns = False
         Me.ProductDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ProductDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn6, Me.DataGridViewCheckBoxColumn1})
+        Me.ProductDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.CategoryID, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn6, Me.DataGridViewCheckBoxColumn1, Me.QuantityPerUnit, Me.colEdit, Me.colDelete, Me.btnDelete})
         Me.ProductDataGridView.DataSource = Me.ProductBindingSource
         Me.ProductDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ProductDataGridView.Location = New System.Drawing.Point(0, 50)
         Me.ProductDataGridView.Name = "ProductDataGridView"
         Me.ProductDataGridView.ReadOnly = True
-        Me.ProductDataGridView.Size = New System.Drawing.Size(657, 350)
+        Me.ProductDataGridView.Size = New System.Drawing.Size(957, 350)
         Me.ProductDataGridView.TabIndex = 1
+        '
+        'PanelTop
+        '
+        Me.PanelTop.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.PanelTop.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PanelTop.Location = New System.Drawing.Point(0, 0)
+        Me.PanelTop.Name = "PanelTop"
+        Me.PanelTop.Size = New System.Drawing.Size(957, 50)
+        Me.PanelTop.TabIndex = 2
+        '
+        'PanelBottom
+        '
+        Me.PanelBottom.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.PanelBottom.Controls.Add(Me.LabelMessage)
+        Me.PanelBottom.Controls.Add(Me.ButtonUpdate)
+        Me.PanelBottom.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.PanelBottom.Location = New System.Drawing.Point(0, 400)
+        Me.PanelBottom.Name = "PanelBottom"
+        Me.PanelBottom.Size = New System.Drawing.Size(957, 50)
+        Me.PanelBottom.TabIndex = 3
+        '
+        'LabelMessage
+        '
+        Me.LabelMessage.AutoSize = True
+        Me.LabelMessage.Location = New System.Drawing.Point(52, 24)
+        Me.LabelMessage.Name = "LabelMessage"
+        Me.LabelMessage.Size = New System.Drawing.Size(39, 13)
+        Me.LabelMessage.TabIndex = 1
+        Me.LabelMessage.Text = "Label1"
+        '
+        'ButtonUpdate
+        '
+        Me.ButtonUpdate.Location = New System.Drawing.Point(563, 15)
+        Me.ButtonUpdate.Name = "ButtonUpdate"
+        Me.ButtonUpdate.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonUpdate.TabIndex = 0
+        Me.ButtonUpdate.Text = "Save Changes"
+        Me.ButtonUpdate.UseVisualStyleBackColor = True
+        '
+        'DataGridViewImageColumn1
+        '
+        Me.DataGridViewImageColumn1.HeaderText = ""
+        Me.DataGridViewImageColumn1.Image = Global.InventorySystem.My.Resources.Resources.angry_bird_green_icon
+        Me.DataGridViewImageColumn1.Name = "DataGridViewImageColumn1"
+        Me.DataGridViewImageColumn1.ReadOnly = True
+        '
+        'ProductBindingSource
+        '
+        Me.ProductBindingSource.DataSource = GetType(InventorySystem.Product)
         '
         'DataGridViewTextBoxColumn1
         '
@@ -57,6 +112,13 @@ Partial Class FormGrid
         Me.DataGridViewTextBoxColumn1.HeaderText = "ProductID"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        '
+        'CategoryID
+        '
+        Me.CategoryID.DataPropertyName = "CategoryID"
+        Me.CategoryID.HeaderText = "CategoryID"
+        Me.CategoryID.Name = "CategoryID"
+        Me.CategoryID.ReadOnly = True
         '
         'DataGridViewTextBoxColumn2
         '
@@ -80,74 +142,68 @@ Partial Class FormGrid
         Me.DataGridViewCheckBoxColumn1.Name = "DataGridViewCheckBoxColumn1"
         Me.DataGridViewCheckBoxColumn1.ReadOnly = True
         '
-        'ProductBindingSource
+        'QuantityPerUnit
         '
-        Me.ProductBindingSource.DataSource = GetType(InventorySystem.Product)
+        Me.QuantityPerUnit.DataPropertyName = "QuantityPerUnit"
+        Me.QuantityPerUnit.HeaderText = "Qty"
+        Me.QuantityPerUnit.Name = "QuantityPerUnit"
+        Me.QuantityPerUnit.ReadOnly = True
         '
-        'PanelTop
+        'colEdit
         '
-        Me.PanelTop.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.PanelTop.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PanelTop.Location = New System.Drawing.Point(0, 0)
-        Me.PanelTop.Name = "PanelTop"
-        Me.PanelTop.Size = New System.Drawing.Size(657, 50)
-        Me.PanelTop.TabIndex = 2
+        Me.colEdit.HeaderText = ""
+        Me.colEdit.Name = "colEdit"
+        Me.colEdit.ReadOnly = True
+        Me.colEdit.Text = "Edit"
+        Me.colEdit.UseColumnTextForLinkValue = True
         '
-        'PanelBottom
+        'colDelete
         '
-        Me.PanelBottom.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.PanelBottom.Controls.Add(Me.LabelMessage)
-        Me.PanelBottom.Controls.Add(Me.ButtonUpdate)
-        Me.PanelBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PanelBottom.Location = New System.Drawing.Point(0, 400)
-        Me.PanelBottom.Name = "PanelBottom"
-        Me.PanelBottom.Size = New System.Drawing.Size(657, 50)
-        Me.PanelBottom.TabIndex = 3
+        Me.colDelete.HeaderText = ""
+        Me.colDelete.Image = Global.InventorySystem.My.Resources.Resources.Close_2_icon
+        Me.colDelete.Name = "colDelete"
+        Me.colDelete.ReadOnly = True
         '
-        'ButtonUpdate
+        'btnDelete
         '
-        Me.ButtonUpdate.Location = New System.Drawing.Point(563, 15)
-        Me.ButtonUpdate.Name = "ButtonUpdate"
-        Me.ButtonUpdate.Size = New System.Drawing.Size(75, 23)
-        Me.ButtonUpdate.TabIndex = 0
-        Me.ButtonUpdate.Text = "Save Changes"
-        Me.ButtonUpdate.UseVisualStyleBackColor = True
-        '
-        'LabelMessage
-        '
-        Me.LabelMessage.AutoSize = True
-        Me.LabelMessage.Location = New System.Drawing.Point(52, 24)
-        Me.LabelMessage.Name = "LabelMessage"
-        Me.LabelMessage.Size = New System.Drawing.Size(39, 13)
-        Me.LabelMessage.TabIndex = 1
-        Me.LabelMessage.Text = "Label1"
+        Me.btnDelete.HeaderText = ""
+        Me.btnDelete.Name = "btnDelete"
+        Me.btnDelete.ReadOnly = True
+        Me.btnDelete.Text = "Delete"
+        Me.btnDelete.UseColumnTextForButtonValue = True
         '
         'FormGrid
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(657, 450)
+        Me.ClientSize = New System.Drawing.Size(957, 450)
         Me.Controls.Add(Me.ProductDataGridView)
         Me.Controls.Add(Me.PanelBottom)
         Me.Controls.Add(Me.PanelTop)
         Me.Name = "FormGrid"
         Me.Text = "FormGrid"
         CType(Me.ProductDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ProductBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelBottom.ResumeLayout(False)
         Me.PanelBottom.PerformLayout()
+        CType(Me.ProductBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents ProductBindingSource As BindingSource
     Friend WithEvents ProductDataGridView As DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewCheckBoxColumn1 As DataGridViewCheckBoxColumn
     Friend WithEvents PanelTop As Panel
     Friend WithEvents PanelBottom As Panel
     Friend WithEvents ButtonUpdate As Button
     Friend WithEvents LabelMessage As Label
+    Friend WithEvents DataGridViewImageColumn1 As DataGridViewImageColumn
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents CategoryID As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewCheckBoxColumn1 As DataGridViewCheckBoxColumn
+    Friend WithEvents QuantityPerUnit As DataGridViewTextBoxColumn
+    Friend WithEvents colEdit As DataGridViewLinkColumn
+    Friend WithEvents colDelete As DataGridViewImageColumn
+    Friend WithEvents btnDelete As DataGridViewButtonColumn
 End Class
