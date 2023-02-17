@@ -2,6 +2,9 @@
     Private dtx As New NorthwindDataContext
     Private Sub FormGrid_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ProductBindingSource.DataSource = dtx.Products
+        'ProductBindingSource.Filter = "ProductID > 50"
+        'ProductBindingSource.ResetBindings(False)
+        dtx.Log = Console.Out
     End Sub
 
     Private Sub ProductDataGridView_RowHeaderMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles ProductDataGridView.RowHeaderMouseDoubleClick
@@ -26,6 +29,9 @@
     End Sub
 
     Private Sub ProductDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles ProductDataGridView.CellContentClick
+        'Ignore if user has clicked on column header
+        If e.RowIndex < 0 Then Exit Sub
+
         Dim colName = ProductDataGridView.Columns(e.ColumnIndex).Name
         Select Case colName
             Case "colEdit"
@@ -46,5 +52,54 @@
                 End If
         End Select
 
+    End Sub
+
+    Private Sub chkDisc_CheckedChanged(sender As Object, e As EventArgs) Handles chkDisc.CheckedChanged
+        'Dim chk = CType(sender, CheckBox)
+        'If chk.Checked Then
+        '    Dim qry = From t In dtx.Products
+        '              Where t.Discontinued = False
+        '    ProductBindingSource.DataSource = qry
+        'Else
+        '    ProductBindingSource.DataSource = dtx.Products
+        'End If
+    End Sub
+
+    Private Sub ButtonFilter_Click(sender As Object, e As EventArgs) Handles ButtonFilter.Click
+        Dim qry = From t In dtx.Products Select t
+        'Filter by discontinued
+        If chkDisc.Checked Then
+            qry = From x In qry
+                  Where x.Discontinued = False
+                  Select x
+        End If
+
+        'Filter by product name
+        Dim pName = txtName.Text.Trim
+        If pName <> String.Empty Then
+            qry = From t In qry
+                  Where t.ProductName.StartsWith(pName)
+        End If
+
+        Dim price As Decimal
+        price = Decimal.Parse(mtxtPrice.Text)
+        Select Case cboOp.SelectedIndex
+            Case 0
+                'Greater then
+                qry = From x In qry
+                      Where x.UnitPrice > price
+                      Select x
+            Case 1
+                'Less then
+                qry = From x In qry
+                      Where x.UnitPrice < price
+                      Select x
+            Case 2
+                qry = From x In qry
+                      Where x.UnitPrice = price
+                      Select x
+        End Select
+
+        ProductBindingSource.DataSource = qry
     End Sub
 End Class

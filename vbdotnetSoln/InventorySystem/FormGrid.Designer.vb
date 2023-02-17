@@ -24,12 +24,6 @@ Partial Class FormGrid
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.ProductDataGridView = New System.Windows.Forms.DataGridView()
-        Me.PanelTop = New System.Windows.Forms.Panel()
-        Me.PanelBottom = New System.Windows.Forms.Panel()
-        Me.LabelMessage = New System.Windows.Forms.Label()
-        Me.ButtonUpdate = New System.Windows.Forms.Button()
-        Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
-        Me.ProductBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CategoryID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -39,9 +33,25 @@ Partial Class FormGrid
         Me.colEdit = New System.Windows.Forms.DataGridViewLinkColumn()
         Me.colDelete = New System.Windows.Forms.DataGridViewImageColumn()
         Me.btnDelete = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.ProductBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PanelTop = New System.Windows.Forms.Panel()
+        Me.PanelBottom = New System.Windows.Forms.Panel()
+        Me.LabelMessage = New System.Windows.Forms.Label()
+        Me.ButtonUpdate = New System.Windows.Forms.Button()
+        Me.DataGridViewImageColumn1 = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.chkDisc = New System.Windows.Forms.CheckBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtName = New System.Windows.Forms.TextBox()
+        Me.ButtonFilter = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.cboOp = New System.Windows.Forms.ComboBox()
+        Me.mtxtPrice = New System.Windows.Forms.MaskedTextBox()
         CType(Me.ProductDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PanelBottom.SuspendLayout()
         CType(Me.ProductBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelTop.SuspendLayout()
+        Me.PanelBottom.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'ProductDataGridView
@@ -53,13 +63,75 @@ Partial Class FormGrid
         Me.ProductDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ProductDataGridView.Location = New System.Drawing.Point(0, 50)
         Me.ProductDataGridView.Name = "ProductDataGridView"
-        Me.ProductDataGridView.ReadOnly = True
         Me.ProductDataGridView.Size = New System.Drawing.Size(957, 350)
         Me.ProductDataGridView.TabIndex = 1
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "ProductID"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "ProductID"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        '
+        'CategoryID
+        '
+        Me.CategoryID.DataPropertyName = "CategoryID"
+        Me.CategoryID.HeaderText = "CategoryID"
+        Me.CategoryID.Name = "CategoryID"
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "ProductName"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "ProductName"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "UnitPrice"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "UnitPrice"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        '
+        'DataGridViewCheckBoxColumn1
+        '
+        Me.DataGridViewCheckBoxColumn1.DataPropertyName = "Discontinued"
+        Me.DataGridViewCheckBoxColumn1.HeaderText = "Discontinued"
+        Me.DataGridViewCheckBoxColumn1.Name = "DataGridViewCheckBoxColumn1"
+        '
+        'QuantityPerUnit
+        '
+        Me.QuantityPerUnit.DataPropertyName = "QuantityPerUnit"
+        Me.QuantityPerUnit.HeaderText = "Qty"
+        Me.QuantityPerUnit.Name = "QuantityPerUnit"
+        '
+        'colEdit
+        '
+        Me.colEdit.HeaderText = ""
+        Me.colEdit.Name = "colEdit"
+        Me.colEdit.Text = "Edit"
+        Me.colEdit.UseColumnTextForLinkValue = True
+        '
+        'colDelete
+        '
+        Me.colDelete.HeaderText = ""
+        Me.colDelete.Image = Global.InventorySystem.My.Resources.Resources.Close_2_icon
+        Me.colDelete.Name = "colDelete"
+        '
+        'btnDelete
+        '
+        Me.btnDelete.HeaderText = ""
+        Me.btnDelete.Name = "btnDelete"
+        Me.btnDelete.Text = "Delete"
+        Me.btnDelete.UseColumnTextForButtonValue = True
+        '
+        'ProductBindingSource
+        '
+        Me.ProductBindingSource.AllowNew = False
+        Me.ProductBindingSource.DataSource = GetType(InventorySystem.Product)
         '
         'PanelTop
         '
         Me.PanelTop.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.PanelTop.Controls.Add(Me.GroupBox1)
         Me.PanelTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelTop.Location = New System.Drawing.Point(0, 0)
         Me.PanelTop.Name = "PanelTop"
@@ -102,75 +174,85 @@ Partial Class FormGrid
         Me.DataGridViewImageColumn1.Name = "DataGridViewImageColumn1"
         Me.DataGridViewImageColumn1.ReadOnly = True
         '
-        'ProductBindingSource
+        'GroupBox1
         '
-        Me.ProductBindingSource.DataSource = GetType(InventorySystem.Product)
+        Me.GroupBox1.Controls.Add(Me.mtxtPrice)
+        Me.GroupBox1.Controls.Add(Me.cboOp)
+        Me.GroupBox1.Controls.Add(Me.Label2)
+        Me.GroupBox1.Controls.Add(Me.ButtonFilter)
+        Me.GroupBox1.Controls.Add(Me.txtName)
+        Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.Controls.Add(Me.chkDisc)
+        Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(957, 50)
+        Me.GroupBox1.TabIndex = 0
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Filter By"
         '
-        'DataGridViewTextBoxColumn1
+        'chkDisc
         '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "ProductID"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "ProductID"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.chkDisc.AutoSize = True
+        Me.chkDisc.Location = New System.Drawing.Point(12, 20)
+        Me.chkDisc.Name = "chkDisc"
+        Me.chkDisc.Size = New System.Drawing.Size(111, 17)
+        Me.chkDisc.TabIndex = 1
+        Me.chkDisc.Text = "Hide discontinued"
+        Me.chkDisc.UseVisualStyleBackColor = True
         '
-        'CategoryID
+        'Label1
         '
-        Me.CategoryID.DataPropertyName = "CategoryID"
-        Me.CategoryID.HeaderText = "CategoryID"
-        Me.CategoryID.Name = "CategoryID"
-        Me.CategoryID.ReadOnly = True
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(166, 21)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(41, 13)
+        Me.Label1.TabIndex = 2
+        Me.Label1.Text = "Name :"
         '
-        'DataGridViewTextBoxColumn2
+        'txtName
         '
-        Me.DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "ProductName"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "ProductName"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.txtName.Location = New System.Drawing.Point(213, 18)
+        Me.txtName.Name = "txtName"
+        Me.txtName.Size = New System.Drawing.Size(249, 20)
+        Me.txtName.TabIndex = 3
         '
-        'DataGridViewTextBoxColumn6
+        'ButtonFilter
         '
-        Me.DataGridViewTextBoxColumn6.DataPropertyName = "UnitPrice"
-        Me.DataGridViewTextBoxColumn6.HeaderText = "UnitPrice"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        Me.ButtonFilter.Location = New System.Drawing.Point(879, 15)
+        Me.ButtonFilter.Name = "ButtonFilter"
+        Me.ButtonFilter.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonFilter.TabIndex = 4
+        Me.ButtonFilter.Text = "Filter"
+        Me.ButtonFilter.UseVisualStyleBackColor = True
         '
-        'DataGridViewCheckBoxColumn1
+        'Label2
         '
-        Me.DataGridViewCheckBoxColumn1.DataPropertyName = "Discontinued"
-        Me.DataGridViewCheckBoxColumn1.HeaderText = "Discontinued"
-        Me.DataGridViewCheckBoxColumn1.Name = "DataGridViewCheckBoxColumn1"
-        Me.DataGridViewCheckBoxColumn1.ReadOnly = True
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(505, 21)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(56, 13)
+        Me.Label2.TabIndex = 5
+        Me.Label2.Text = "Unit Price:"
         '
-        'QuantityPerUnit
+        'cboOp
         '
-        Me.QuantityPerUnit.DataPropertyName = "QuantityPerUnit"
-        Me.QuantityPerUnit.HeaderText = "Qty"
-        Me.QuantityPerUnit.Name = "QuantityPerUnit"
-        Me.QuantityPerUnit.ReadOnly = True
+        Me.cboOp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboOp.FormattingEnabled = True
+        Me.cboOp.Items.AddRange(New Object() {"Greater Than", "Less Than", "Equal To"})
+        Me.cboOp.Location = New System.Drawing.Point(563, 18)
+        Me.cboOp.Name = "cboOp"
+        Me.cboOp.Size = New System.Drawing.Size(75, 21)
+        Me.cboOp.TabIndex = 6
         '
-        'colEdit
+        'mtxtPrice
         '
-        Me.colEdit.HeaderText = ""
-        Me.colEdit.Name = "colEdit"
-        Me.colEdit.ReadOnly = True
-        Me.colEdit.Text = "Edit"
-        Me.colEdit.UseColumnTextForLinkValue = True
-        '
-        'colDelete
-        '
-        Me.colDelete.HeaderText = ""
-        Me.colDelete.Image = Global.InventorySystem.My.Resources.Resources.Close_2_icon
-        Me.colDelete.Name = "colDelete"
-        Me.colDelete.ReadOnly = True
-        '
-        'btnDelete
-        '
-        Me.btnDelete.HeaderText = ""
-        Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.ReadOnly = True
-        Me.btnDelete.Text = "Delete"
-        Me.btnDelete.UseColumnTextForButtonValue = True
+        Me.mtxtPrice.Location = New System.Drawing.Point(644, 19)
+        Me.mtxtPrice.Mask = "00000"
+        Me.mtxtPrice.Name = "mtxtPrice"
+        Me.mtxtPrice.Size = New System.Drawing.Size(100, 20)
+        Me.mtxtPrice.TabIndex = 7
+        Me.mtxtPrice.ValidatingType = GetType(Integer)
         '
         'FormGrid
         '
@@ -183,9 +265,12 @@ Partial Class FormGrid
         Me.Name = "FormGrid"
         Me.Text = "FormGrid"
         CType(Me.ProductDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ProductBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelTop.ResumeLayout(False)
         Me.PanelBottom.ResumeLayout(False)
         Me.PanelBottom.PerformLayout()
-        CType(Me.ProductBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -206,4 +291,12 @@ Partial Class FormGrid
     Friend WithEvents colEdit As DataGridViewLinkColumn
     Friend WithEvents colDelete As DataGridViewImageColumn
     Friend WithEvents btnDelete As DataGridViewButtonColumn
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents chkDisc As CheckBox
+    Friend WithEvents ButtonFilter As Button
+    Friend WithEvents txtName As TextBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents cboOp As ComboBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents mtxtPrice As MaskedTextBox
 End Class
