@@ -237,6 +237,7 @@
     <None Include="My Project\DataSources\DbTable.datasource" />
     <None Include="My Project\DataSources\Graphic.datasource" />
     <None Include="My Project\DataSources\Product.datasource" />
+    <None Include="My Project\DataSources\Supplier.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>

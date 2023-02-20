@@ -1,6 +1,16 @@
 ﻿Public Class FormGrid
     Private dtx As New NorthwindDataContext
     Private Sub FormGrid_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Setup Category Dropdown list
+        CategoryBindingSource.DataSource = dtx.Categories
+        CategoryID.DisplayMember = "CategoryName"
+        CategoryID.ValueMember = "CategoryID"
+
+        'Setup Supplier dropdown list
+        SupplierBindingSource.DataSource = dtx.Suppliers
+        ColSID.DisplayMember = "CompanyName"
+        ColSID.ValueMember = "SupplierID"
+
         ProductBindingSource.DataSource = dtx.Products
         'ProductBindingSource.Filter = "ProductID > 50"
         'ProductBindingSource.ResetBindings(False)
@@ -101,5 +111,27 @@
         End Select
 
         ProductBindingSource.DataSource = qry
+    End Sub
+
+    Private Sub CategoryBindingSource_CurrentChanged(sender As Object, e As EventArgs) Handles CategoryBindingSource.CurrentChanged
+        Dim catgObj = CType(CategoryBindingSource.Current, Category)
+        TextBoxDesc.Text = catgObj.Description
+    End Sub
+
+    Private Sub CategoryBindingSource_CurrentItemChanged(sender As Object, e As EventArgs) Handles CategoryBindingSource.CurrentItemChanged
+
+    End Sub
+
+    Private Sub CategoryBindingSource_PositionChanged(sender As Object, e As EventArgs) Handles CategoryBindingSource.PositionChanged
+
+    End Sub
+
+    Private Sub ProductBindingSource_CurrentChanged(sender As Object, e As EventArgs) Handles ProductBindingSource.CurrentChanged
+        Dim prodObj = CType(ProductBindingSource.Current, Product)
+        TextBoxStock.Text = prodObj.QuantityPerUnit
+    End Sub
+
+    Private Sub ButtonCancel_Click(sender As Object, e As EventArgs) Handles ButtonCancel.Click
+        ProductBindingSource.RemoveCurrent()
     End Sub
 End Class
