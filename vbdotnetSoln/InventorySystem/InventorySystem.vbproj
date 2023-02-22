@@ -48,11 +48,20 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -74,6 +83,9 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CategoryEF.vb">
+      <DependentUpon>ModelNorthWind.tt</DependentUpon>
+    </Compile>
     <Compile Include="ClassShape.vb" />
     <Compile Include="ClassShape1.vb" />
     <Compile Include="ClassShape2.vb" />
@@ -109,10 +121,22 @@
     <Compile Include="FormCatg.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormCatg1.Designer.vb">
+      <DependentUpon>FormCatg1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCatg1.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormDataBinding.Designer.vb">
       <DependentUpon>FormDataBinding.vb</DependentUpon>
     </Compile>
     <Compile Include="FormDataBinding.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEF.Designer.vb">
+      <DependentUpon>FormEF.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormEF.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormGrid.Designer.vb">
@@ -152,6 +176,21 @@
     </Compile>
     <Compile Include="MainForm.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModelNorthWind.Context.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelNorthWind.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelNorthWind.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelNorthWind.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ModelNorthWind.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelNorthWind.tt</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -201,8 +240,14 @@
     <EmbeddedResource Include="FormCatg.resx">
       <DependentUpon>FormCatg.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormCatg1.resx">
+      <DependentUpon>FormCatg1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDataBinding.resx">
       <DependentUpon>FormDataBinding.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEF.resx">
+      <DependentUpon>FormEF.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormGrid.resx">
       <DependentUpon>FormGrid.vb</DependentUpon>
@@ -238,6 +283,13 @@
     <None Include="Inventory.dbml.layout">
       <DependentUpon>Inventory.dbml</DependentUpon>
     </None>
+    <EntityDeploy Include="ModelNorthWind.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelNorthWind.Designer.vb</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModelNorthWind.edmx.diagram">
+      <DependentUpon>ModelNorthWind.edmx</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -256,6 +308,7 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Northwind.dbml">
@@ -266,6 +319,7 @@
     <None Include="Northwind.dbml.layout">
       <DependentUpon>Northwind.dbml</DependentUpon>
     </None>
+    <None Include="packages.config" />
     <None Include="Resources\red.png" />
   </ItemGroup>
   <ItemGroup>
@@ -282,6 +336,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Close-2-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ModelNorthWind.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelNorthWind.Context.vb</LastGenOutput>
+      <DependentUpon>ModelNorthWind.edmx</DependentUpon>
+    </Content>
+    <Content Include="ModelNorthWind.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelNorthWind.edmx</DependentUpon>
+      <LastGenOutput>ModelNorthWind.vb</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -26,26 +26,26 @@ Partial Class FormCatg
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.btnNew = New System.Windows.Forms.Button()
+        Me.btnDelete = New System.Windows.Forms.Button()
+        Me.btnClear = New System.Windows.Forms.Button()
+        Me.btnSave = New System.Windows.Forms.Button()
         Me.txtDesc = New System.Windows.Forms.TextBox()
         Me.txtName = New System.Windows.Forms.TextBox()
         Me.txtID = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.CategoryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CategoryDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.btnSave = New System.Windows.Forms.Button()
-        Me.btnClear = New System.Windows.Forms.Button()
-        Me.btnDelete = New System.Windows.Forms.Button()
-        Me.btnNew = New System.Windows.Forms.Button()
+        Me.CategoryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Panel3.SuspendLayout()
-        CType(Me.CategoryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CategoryDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel4.SuspendLayout()
+        CType(Me.CategoryDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CategoryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -78,6 +78,60 @@ Partial Class FormCatg
         Me.Panel3.Name = "Panel3"
         Me.Panel3.Size = New System.Drawing.Size(800, 260)
         Me.Panel3.TabIndex = 2
+        '
+        'Panel4
+        '
+        Me.Panel4.BackColor = System.Drawing.Color.Gray
+        Me.Panel4.Controls.Add(Me.btnNew)
+        Me.Panel4.Controls.Add(Me.btnDelete)
+        Me.Panel4.Controls.Add(Me.btnClear)
+        Me.Panel4.Controls.Add(Me.btnSave)
+        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Panel4.Location = New System.Drawing.Point(0, 217)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Padding = New System.Windows.Forms.Padding(5)
+        Me.Panel4.Size = New System.Drawing.Size(800, 43)
+        Me.Panel4.TabIndex = 6
+        '
+        'btnNew
+        '
+        Me.btnNew.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btnNew.Location = New System.Drawing.Point(495, 5)
+        Me.btnNew.Name = "btnNew"
+        Me.btnNew.Size = New System.Drawing.Size(75, 33)
+        Me.btnNew.TabIndex = 3
+        Me.btnNew.Text = "Save"
+        Me.btnNew.UseVisualStyleBackColor = True
+        '
+        'btnDelete
+        '
+        Me.btnDelete.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btnDelete.Location = New System.Drawing.Point(570, 5)
+        Me.btnDelete.Name = "btnDelete"
+        Me.btnDelete.Size = New System.Drawing.Size(75, 33)
+        Me.btnDelete.TabIndex = 2
+        Me.btnDelete.Text = "Delete"
+        Me.btnDelete.UseVisualStyleBackColor = True
+        '
+        'btnClear
+        '
+        Me.btnClear.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btnClear.Location = New System.Drawing.Point(645, 5)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(75, 33)
+        Me.btnClear.TabIndex = 1
+        Me.btnClear.Text = "Clear"
+        Me.btnClear.UseVisualStyleBackColor = True
+        '
+        'btnSave
+        '
+        Me.btnSave.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btnSave.Location = New System.Drawing.Point(720, 5)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(75, 33)
+        Me.btnSave.TabIndex = 0
+        Me.btnSave.Text = "Update"
+        Me.btnSave.UseVisualStyleBackColor = True
         '
         'txtDesc
         '
@@ -128,10 +182,6 @@ Partial Class FormCatg
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "ID :"
         '
-        'CategoryBindingSource
-        '
-        Me.CategoryBindingSource.DataSource = GetType(InventorySystem.Category)
-        '
         'CategoryDataGridView
         '
         Me.CategoryDataGridView.AllowUserToAddRows = False
@@ -170,59 +220,9 @@ Partial Class FormCatg
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
         Me.DataGridViewTextBoxColumn3.ReadOnly = True
         '
-        'Panel4
+        'CategoryBindingSource
         '
-        Me.Panel4.BackColor = System.Drawing.Color.Gray
-        Me.Panel4.Controls.Add(Me.btnNew)
-        Me.Panel4.Controls.Add(Me.btnDelete)
-        Me.Panel4.Controls.Add(Me.btnClear)
-        Me.Panel4.Controls.Add(Me.btnSave)
-        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel4.Location = New System.Drawing.Point(0, 217)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Padding = New System.Windows.Forms.Padding(5)
-        Me.Panel4.Size = New System.Drawing.Size(800, 43)
-        Me.Panel4.TabIndex = 6
-        '
-        'btnSave
-        '
-        Me.btnSave.Dock = System.Windows.Forms.DockStyle.Right
-        Me.btnSave.Location = New System.Drawing.Point(720, 5)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(75, 33)
-        Me.btnSave.TabIndex = 0
-        Me.btnSave.Text = "Update"
-        Me.btnSave.UseVisualStyleBackColor = True
-        '
-        'btnClear
-        '
-        Me.btnClear.Dock = System.Windows.Forms.DockStyle.Right
-        Me.btnClear.Location = New System.Drawing.Point(645, 5)
-        Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(75, 33)
-        Me.btnClear.TabIndex = 1
-        Me.btnClear.Text = "Clear"
-        Me.btnClear.UseVisualStyleBackColor = True
-        '
-        'btnDelete
-        '
-        Me.btnDelete.Dock = System.Windows.Forms.DockStyle.Right
-        Me.btnDelete.Location = New System.Drawing.Point(570, 5)
-        Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(75, 33)
-        Me.btnDelete.TabIndex = 2
-        Me.btnDelete.Text = "Delete"
-        Me.btnDelete.UseVisualStyleBackColor = True
-        '
-        'btnNew
-        '
-        Me.btnNew.Dock = System.Windows.Forms.DockStyle.Right
-        Me.btnNew.Location = New System.Drawing.Point(495, 5)
-        Me.btnNew.Name = "btnNew"
-        Me.btnNew.Size = New System.Drawing.Size(75, 33)
-        Me.btnNew.TabIndex = 3
-        Me.btnNew.Text = "Save"
-        Me.btnNew.UseVisualStyleBackColor = True
+        Me.CategoryBindingSource.DataSource = GetType(InventorySystem.Category)
         '
         'FormCatg
         '
@@ -239,9 +239,9 @@ Partial Class FormCatg
         Me.Text = "FormCatg"
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
-        CType(Me.CategoryBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CategoryDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel4.ResumeLayout(False)
+        CType(Me.CategoryDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CategoryBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

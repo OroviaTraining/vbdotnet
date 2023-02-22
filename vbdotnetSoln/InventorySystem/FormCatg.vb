@@ -13,10 +13,10 @@
     End Sub
 
     Private Sub CategoryBindingSource_PositionChanged(sender As Object, e As EventArgs) Handles CategoryBindingSource.PositionChanged
-        'Get the current category
-        If CategoryBindingSource.Position < 0 Then Exit Sub
-        currentObj = CType(CategoryBindingSource.Current, Category)
-        ShowData()
+        ''Get the current category
+        'If CategoryBindingSource.Position < 0 Then Exit Sub
+        'currentObj = CType(CategoryBindingSource.Current, Category)
+        'ShowData()
     End Sub
     ''' <summary>
     ''' Populate screen with data from current object
@@ -87,9 +87,19 @@
 
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
         CategoryBindingSource.RemoveCurrent()
-        dtx.SubmitChanges()
+        'dtx.SubmitChanges()
         'dtx.Categories.DeleteOnSubmit(currentObj)
         'dtx.SubmitChanges()
         'CategoryBindingSource.ResetBindings(False)
+    End Sub
+
+    Private Sub CategoryBindingSource_CurrentChanged(sender As Object, e As EventArgs) Handles CategoryBindingSource.CurrentChanged
+        'Get the current category
+        currentObj = CType(CategoryBindingSource.Current, Category)
+        ShowData()
+    End Sub
+
+    Private Sub CategoryBindingSource_CurrentItemChanged(sender As Object, e As EventArgs) Handles CategoryBindingSource.CurrentItemChanged
+
     End Sub
 End Class

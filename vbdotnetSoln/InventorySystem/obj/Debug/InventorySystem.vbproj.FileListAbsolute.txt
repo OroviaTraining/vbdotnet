@@ -22,3 +22,10 @@ C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\InventorySystem\obj\Debug\InventorySy
 C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\InventorySystem\obj\Debug\InventorySystem.FormGrid.resources
 C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\InventorySystem\obj\Debug\InventorySystem.FormProductDetails.resources
 C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\InventorySystem\obj\Debug\InventorySystem.FormCatg.resources
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\InventorySystem\obj\Debug\InventorySystem.FormCatg1.resources
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\InventorySystem\obj\Debug\InventorySystem.FormEF.resources
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\InventorySystem\bin\Debug\EntityFramework.dll
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\InventorySystem\bin\Debug\EntityFramework.SqlServer.dll
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\InventorySystem\bin\Debug\EntityFramework.xml
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\InventorySystem\bin\Debug\EntityFramework.SqlServer.xml
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\InventorySystem\obj\Debug\InventorySystem.vbproj.CopyComplete
