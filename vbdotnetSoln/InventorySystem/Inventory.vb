@@ -73,6 +73,22 @@ Partial Public Class DbTable
 
     End Sub
 
-
 End Class
 
+Partial Public Class Graphic
+    Private Sub OnValidate(action As ChangeAction)
+        Select Case action
+            Case ChangeAction.Delete
+                'Add a record in to the log file
+            Case ChangeAction.Insert
+                'Set created date and user
+                Me.credate = Today
+                Me.creuser = "DCN"
+
+            Case ChangeAction.Update
+                'Add auti trail
+                Me.amddate = Today
+                Me.amduser = "Dcn"
+        End Select
+    End Sub
+End Class

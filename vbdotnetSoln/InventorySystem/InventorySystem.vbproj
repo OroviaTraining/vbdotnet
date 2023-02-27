@@ -127,6 +127,12 @@
     <Compile Include="FormCatg1.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormCrud.Designer.vb">
+      <DependentUpon>FormCrud.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCrud.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormDataBinding.Designer.vb">
       <DependentUpon>FormDataBinding.vb</DependentUpon>
     </Compile>
@@ -223,6 +229,14 @@
     <Compile Include="PlayGround.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Training.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Training.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Training.vb">
+      <DependentUpon>Training.dbml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
@@ -242,6 +256,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormCatg1.resx">
       <DependentUpon>FormCatg1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCrud.resx">
+      <DependentUpon>FormCrud.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDataBinding.resx">
       <DependentUpon>FormDataBinding.vb</DependentUpon>
@@ -296,6 +313,8 @@
     </None>
     <None Include="My Project\DataSources\Category.datasource" />
     <None Include="My Project\DataSources\DbTable.datasource" />
+    <None Include="My Project\DataSources\Employee.datasource" />
+    <None Include="My Project\DataSources\EmployeeDeleted.datasource" />
     <None Include="My Project\DataSources\Graphic.datasource" />
     <None Include="My Project\DataSources\Product.datasource" />
     <None Include="My Project\DataSources\Supplier.datasource" />
@@ -305,6 +324,14 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="Training.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Training.designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Training.dbml.layout">
+      <DependentUpon>Training.dbml</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
