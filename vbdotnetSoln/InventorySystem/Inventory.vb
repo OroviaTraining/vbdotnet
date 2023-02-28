@@ -4,6 +4,9 @@ Partial Public Class InventoryDataContext
 
 End Class
 Partial Public Class DbTable
+    Public Shared deletFlag As Boolean = True
+    Public Shared updateFlag As Boolean = True
+
     Private Sub OnCreated()
         Dim a = Me.seqNo
     End Sub
@@ -13,6 +16,7 @@ Partial Public Class DbTable
         Select Case action
             Case ChangeAction.Delete
                 'Add a record in to the log file
+                deletFlag = True
             Case ChangeAction.Insert
                 ValidateTypes()
                 'Set created date and user
@@ -24,6 +28,7 @@ Partial Public Class DbTable
                 'Add auti trail
                 Me.amdDate = Today
                 Me.amdUser = "Dcn"
+                updateFlag = True
         End Select
     End Sub
 
