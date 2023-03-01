@@ -29,3 +29,18 @@ Partial Public Class Employee
         Dim a = Me.ename
     End Sub
 End Class
+
+Partial Public Class BCategory
+    Private Sub OnValidate(action As ChangeAction)
+        Select Case action
+            Case ChangeAction.Insert
+                Me.credate = Now
+                Me.creuser = "DCN"
+
+            Case ChangeAction.Update
+                Me.amddate = Now
+                Me.amduser = "dcn"
+            Case ChangeAction.Delete
+        End Select
+    End Sub
+End Class

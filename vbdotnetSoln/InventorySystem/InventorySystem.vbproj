@@ -151,6 +151,18 @@
     <Compile Include="FormGrid.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormParentChild.Designer.vb">
+      <DependentUpon>FormParentChild.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormParentChild.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPC.Designer.vb">
+      <DependentUpon>FormPC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormPC.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormProductDetails.Designer.vb">
       <DependentUpon>FormProductDetails.vb</DependentUpon>
     </Compile>
@@ -269,6 +281,12 @@
     <EmbeddedResource Include="FormGrid.resx">
       <DependentUpon>FormGrid.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormParentChild.resx">
+      <DependentUpon>FormParentChild.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPC.resx">
+      <DependentUpon>FormPC.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormProductDetails.resx">
       <DependentUpon>FormProductDetails.vb</DependentUpon>
     </EmbeddedResource>
@@ -311,6 +329,8 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\DataSources\BCategory.datasource" />
+    <None Include="My Project\DataSources\Brand.datasource" />
     <None Include="My Project\DataSources\Category.datasource" />
     <None Include="My Project\DataSources\DbTable.datasource" />
     <None Include="My Project\DataSources\Employee.datasource" />

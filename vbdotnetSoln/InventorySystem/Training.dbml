@@ -20,4 +20,23 @@
       <Column Name="amduser" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.Brand" Member="Brands">
+    <Type Name="Brand">
+      <Column Name="bid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="bname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Brand_Category" Member="BCategories" ThisKey="bid" OtherKey="bid" Type="BCategory" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Category" Member="BCategories">
+    <Type Name="BCategory">
+      <Column Name="cid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="bid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="credate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="creuser" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="amddate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="amduser" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Brand_Category" Member="Brand" ThisKey="bid" OtherKey="bid" Type="Brand" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
 </Database>

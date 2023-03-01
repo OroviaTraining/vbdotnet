@@ -43,6 +43,18 @@ Partial Public Class TrainingDataContext
     End Sub
   Partial Private Sub DeleteEmployeeDeleted(instance As EmployeeDeleted)
     End Sub
+  Partial Private Sub InsertBrand(instance As Brand)
+    End Sub
+  Partial Private Sub UpdateBrand(instance As Brand)
+    End Sub
+  Partial Private Sub DeleteBrand(instance As Brand)
+    End Sub
+  Partial Private Sub InsertBCategory(instance As BCategory)
+    End Sub
+  Partial Private Sub UpdateBCategory(instance As BCategory)
+    End Sub
+  Partial Private Sub DeleteBCategory(instance As BCategory)
+    End Sub
   #End Region
 	
 	Public Sub New()
@@ -79,6 +91,18 @@ Partial Public Class TrainingDataContext
 	Public ReadOnly Property EmployeeDeleteds() As System.Data.Linq.Table(Of EmployeeDeleted)
 		Get
 			Return Me.GetTable(Of EmployeeDeleted)
+		End Get
+	End Property
+	
+	Public ReadOnly Property Brands() As System.Data.Linq.Table(Of Brand)
+		Get
+			Return Me.GetTable(Of Brand)
+		End Get
+	End Property
+	
+	Public ReadOnly Property BCategories() As System.Data.Linq.Table(Of BCategory)
+		Get
+			Return Me.GetTable(Of BCategory)
 		End Get
 	End Property
 End Class
@@ -406,6 +430,343 @@ Partial Public Class EmployeeDeleted
 				Me._amduser = value
 				Me.SendPropertyChanged("amduser")
 				Me.OnamduserChanged
+			End If
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Brand")>  _
+Partial Public Class Brand
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _bid As Integer
+	
+	Private _bname As String
+	
+	Private _BCategories As EntitySet(Of BCategory)
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OnbidChanging(value As Integer)
+    End Sub
+    Partial Private Sub OnbidChanged()
+    End Sub
+    Partial Private Sub OnbnameChanging(value As String)
+    End Sub
+    Partial Private Sub OnbnameChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		Me._BCategories = New EntitySet(Of BCategory)(AddressOf Me.attach_BCategories, AddressOf Me.detach_BCategories)
+		OnCreated
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_bid", AutoSync:=AutoSync.OnInsert, DbType:="Int NOT NULL IDENTITY", IsPrimaryKey:=true, IsDbGenerated:=true)>  _
+	Public Property bid() As Integer
+		Get
+			Return Me._bid
+		End Get
+		Set
+			If ((Me._bid = value)  _
+						= false) Then
+				Me.OnbidChanging(value)
+				Me.SendPropertyChanging
+				Me._bid = value
+				Me.SendPropertyChanged("bid")
+				Me.OnbidChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_bname", DbType:="VarChar(50) NOT NULL", CanBeNull:=false)>  _
+	Public Property bname() As String
+		Get
+			Return Me._bname
+		End Get
+		Set
+			If (String.Equals(Me._bname, value) = false) Then
+				Me.OnbnameChanging(value)
+				Me.SendPropertyChanging
+				Me._bname = value
+				Me.SendPropertyChanged("bname")
+				Me.OnbnameChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Brand_Category", Storage:="_BCategories", ThisKey:="bid", OtherKey:="bid")>  _
+	Public Property BCategories() As EntitySet(Of BCategory)
+		Get
+			Return Me._BCategories
+		End Get
+		Set
+			Me._BCategories.Assign(value)
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
+	
+	Private Sub attach_BCategories(ByVal entity As BCategory)
+		Me.SendPropertyChanging
+		entity.Brand = Me
+	End Sub
+	
+	Private Sub detach_BCategories(ByVal entity As BCategory)
+		Me.SendPropertyChanging
+		entity.Brand = Nothing
+	End Sub
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Category")>  _
+Partial Public Class BCategory
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _cid As Integer
+	
+	Private _cname As String
+	
+	Private _bid As Integer
+	
+	Private _credate As Date
+	
+	Private _creuser As String
+	
+	Private _amddate As System.Nullable(Of Date)
+	
+	Private _amduser As String
+	
+	Private _Brand As EntityRef(Of Brand)
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OncidChanging(value As Integer)
+    End Sub
+    Partial Private Sub OncidChanged()
+    End Sub
+    Partial Private Sub OncnameChanging(value As String)
+    End Sub
+    Partial Private Sub OncnameChanged()
+    End Sub
+    Partial Private Sub OnbidChanging(value As Integer)
+    End Sub
+    Partial Private Sub OnbidChanged()
+    End Sub
+    Partial Private Sub OncredateChanging(value As Date)
+    End Sub
+    Partial Private Sub OncredateChanged()
+    End Sub
+    Partial Private Sub OncreuserChanging(value As String)
+    End Sub
+    Partial Private Sub OncreuserChanged()
+    End Sub
+    Partial Private Sub OnamddateChanging(value As System.Nullable(Of Date))
+    End Sub
+    Partial Private Sub OnamddateChanged()
+    End Sub
+    Partial Private Sub OnamduserChanging(value As String)
+    End Sub
+    Partial Private Sub OnamduserChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		Me._Brand = CType(Nothing, EntityRef(Of Brand))
+		OnCreated
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_cid", AutoSync:=AutoSync.OnInsert, DbType:="Int NOT NULL IDENTITY", IsPrimaryKey:=true, IsDbGenerated:=true)>  _
+	Public Property cid() As Integer
+		Get
+			Return Me._cid
+		End Get
+		Set
+			If ((Me._cid = value)  _
+						= false) Then
+				Me.OncidChanging(value)
+				Me.SendPropertyChanging
+				Me._cid = value
+				Me.SendPropertyChanged("cid")
+				Me.OncidChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_cname", DbType:="VarChar(50) NOT NULL", CanBeNull:=false)>  _
+	Public Property cname() As String
+		Get
+			Return Me._cname
+		End Get
+		Set
+			If (String.Equals(Me._cname, value) = false) Then
+				Me.OncnameChanging(value)
+				Me.SendPropertyChanging
+				Me._cname = value
+				Me.SendPropertyChanged("cname")
+				Me.OncnameChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_bid", DbType:="Int NOT NULL")>  _
+	Public Property bid() As Integer
+		Get
+			Return Me._bid
+		End Get
+		Set
+			If ((Me._bid = value)  _
+						= false) Then
+				If Me._Brand.HasLoadedOrAssignedValue Then
+					Throw New System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException()
+				End If
+				Me.OnbidChanging(value)
+				Me.SendPropertyChanging
+				Me._bid = value
+				Me.SendPropertyChanged("bid")
+				Me.OnbidChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_credate", DbType:="DateTime NOT NULL")>  _
+	Public Property credate() As Date
+		Get
+			Return Me._credate
+		End Get
+		Set
+			If ((Me._credate = value)  _
+						= false) Then
+				Me.OncredateChanging(value)
+				Me.SendPropertyChanging
+				Me._credate = value
+				Me.SendPropertyChanged("credate")
+				Me.OncredateChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_creuser", DbType:="VarChar(50) NOT NULL", CanBeNull:=false)>  _
+	Public Property creuser() As String
+		Get
+			Return Me._creuser
+		End Get
+		Set
+			If (String.Equals(Me._creuser, value) = false) Then
+				Me.OncreuserChanging(value)
+				Me.SendPropertyChanging
+				Me._creuser = value
+				Me.SendPropertyChanged("creuser")
+				Me.OncreuserChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_amddate", DbType:="DateTime")>  _
+	Public Property amddate() As System.Nullable(Of Date)
+		Get
+			Return Me._amddate
+		End Get
+		Set
+			If (Me._amddate.Equals(value) = false) Then
+				Me.OnamddateChanging(value)
+				Me.SendPropertyChanging
+				Me._amddate = value
+				Me.SendPropertyChanged("amddate")
+				Me.OnamddateChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_amduser", DbType:="VarChar(50)")>  _
+	Public Property amduser() As String
+		Get
+			Return Me._amduser
+		End Get
+		Set
+			If (String.Equals(Me._amduser, value) = false) Then
+				Me.OnamduserChanging(value)
+				Me.SendPropertyChanging
+				Me._amduser = value
+				Me.SendPropertyChanged("amduser")
+				Me.OnamduserChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Brand_Category", Storage:="_Brand", ThisKey:="bid", OtherKey:="bid", IsForeignKey:=true, DeleteOnNull:=true, DeleteRule:="CASCADE")>  _
+	Public Property Brand() As Brand
+		Get
+			Return Me._Brand.Entity
+		End Get
+		Set
+			Dim previousValue As Brand = Me._Brand.Entity
+			If ((Object.Equals(previousValue, value) = false)  _
+						OrElse (Me._Brand.HasLoadedOrAssignedValue = false)) Then
+				Me.SendPropertyChanging
+				If ((previousValue Is Nothing)  _
+							= false) Then
+					Me._Brand.Entity = Nothing
+					previousValue.BCategories.Remove(Me)
+				End If
+				Me._Brand.Entity = value
+				If ((value Is Nothing)  _
+							= false) Then
+					value.BCategories.Add(Me)
+					Me._bid = value.bid
+				Else
+					Me._bid = CType(Nothing, Integer)
+				End If
+				Me.SendPropertyChanged("Brand")
 			End If
 		End Set
 	End Property
