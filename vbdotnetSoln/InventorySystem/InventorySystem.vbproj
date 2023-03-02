@@ -89,6 +89,18 @@
     <Compile Include="ClassShape.vb" />
     <Compile Include="ClassShape1.vb" />
     <Compile Include="ClassShape2.vb" />
+    <Compile Include="Controls\ctlBacs.Designer.vb">
+      <DependentUpon>ctlBacs.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ctlBacs.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CtlAddress.Designer.vb">
+      <DependentUpon>CtlAddress.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CtlAddress.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Customer.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
@@ -149,6 +161,12 @@
       <DependentUpon>FormGrid.vb</DependentUpon>
     </Compile>
     <Compile Include="FormGrid.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormImages.Designer.vb">
+      <DependentUpon>FormImages.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormImages.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormParentChild.Designer.vb">
@@ -251,6 +269,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controls\ctlBacs.resx">
+      <DependentUpon>ctlBacs.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtlAddress.resx">
+      <DependentUpon>CtlAddress.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
@@ -280,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormGrid.resx">
       <DependentUpon>FormGrid.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormImages.resx">
+      <DependentUpon>FormImages.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormParentChild.resx">
       <DependentUpon>FormParentChild.vb</DependentUpon>
