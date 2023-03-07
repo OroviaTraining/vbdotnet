@@ -30,6 +30,8 @@ Partial Class Form2
         Dim GnameLabel As System.Windows.Forms.Label
         Dim SeqnoLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form2))
+        Dim CategoryIDLabel As System.Windows.Forms.Label
+        Dim ProductNameLabel As System.Windows.Forms.Label
         Me.GraphicBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
         Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton()
         Me.GraphicBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -49,15 +51,21 @@ Partial Class Form2
         Me.CreuserTextBox = New System.Windows.Forms.TextBox()
         Me.GnameTextBox = New System.Windows.Forms.TextBox()
         Me.SeqnoTextBox = New System.Windows.Forms.TextBox()
+        Me.ProductBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CategoryIDComboBox = New System.Windows.Forms.ComboBox()
+        Me.ProductNameTextBox = New System.Windows.Forms.TextBox()
         AmddateLabel = New System.Windows.Forms.Label()
         AmduserLabel = New System.Windows.Forms.Label()
         CredateLabel = New System.Windows.Forms.Label()
         CreuserLabel = New System.Windows.Forms.Label()
         GnameLabel = New System.Windows.Forms.Label()
         SeqnoLabel = New System.Windows.Forms.Label()
+        CategoryIDLabel = New System.Windows.Forms.Label()
+        ProductNameLabel = New System.Windows.Forms.Label()
         CType(Me.GraphicBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GraphicBindingNavigator.SuspendLayout()
         CType(Me.GraphicBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ProductBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'AmddateLabel
@@ -271,11 +279,54 @@ Partial Class Form2
         Me.SeqnoTextBox.Size = New System.Drawing.Size(200, 20)
         Me.SeqnoTextBox.TabIndex = 12
         '
+        'ProductBindingSource
+        '
+        Me.ProductBindingSource.DataSource = GetType(InventorySystem.Product)
+        '
+        'CategoryIDLabel
+        '
+        CategoryIDLabel.AutoSize = True
+        CategoryIDLabel.Location = New System.Drawing.Point(207, 273)
+        CategoryIDLabel.Name = "CategoryIDLabel"
+        CategoryIDLabel.Size = New System.Drawing.Size(66, 13)
+        CategoryIDLabel.TabIndex = 13
+        CategoryIDLabel.Text = "Category ID:"
+        '
+        'CategoryIDComboBox
+        '
+        Me.CategoryIDComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductBindingSource, "CategoryID", True))
+        Me.CategoryIDComboBox.FormattingEnabled = True
+        Me.CategoryIDComboBox.Location = New System.Drawing.Point(279, 270)
+        Me.CategoryIDComboBox.Name = "CategoryIDComboBox"
+        Me.CategoryIDComboBox.Size = New System.Drawing.Size(121, 21)
+        Me.CategoryIDComboBox.TabIndex = 14
+        '
+        'ProductNameLabel
+        '
+        ProductNameLabel.AutoSize = True
+        ProductNameLabel.Location = New System.Drawing.Point(126, 355)
+        ProductNameLabel.Name = "ProductNameLabel"
+        ProductNameLabel.Size = New System.Drawing.Size(78, 13)
+        ProductNameLabel.TabIndex = 15
+        ProductNameLabel.Text = "Product Name:"
+        '
+        'ProductNameTextBox
+        '
+        Me.ProductNameTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductBindingSource, "ProductName", True))
+        Me.ProductNameTextBox.Location = New System.Drawing.Point(210, 352)
+        Me.ProductNameTextBox.Name = "ProductNameTextBox"
+        Me.ProductNameTextBox.Size = New System.Drawing.Size(190, 20)
+        Me.ProductNameTextBox.TabIndex = 16
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 485)
+        Me.Controls.Add(ProductNameLabel)
+        Me.Controls.Add(Me.ProductNameTextBox)
+        Me.Controls.Add(CategoryIDLabel)
+        Me.Controls.Add(Me.CategoryIDComboBox)
         Me.Controls.Add(AmddateLabel)
         Me.Controls.Add(Me.AmddateDateTimePicker)
         Me.Controls.Add(AmduserLabel)
@@ -295,6 +346,7 @@ Partial Class Form2
         Me.GraphicBindingNavigator.ResumeLayout(False)
         Me.GraphicBindingNavigator.PerformLayout()
         CType(Me.GraphicBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ProductBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -319,4 +371,7 @@ Partial Class Form2
     Friend WithEvents CreuserTextBox As TextBox
     Friend WithEvents GnameTextBox As TextBox
     Friend WithEvents SeqnoTextBox As TextBox
+    Friend WithEvents ProductBindingSource As BindingSource
+    Friend WithEvents CategoryIDComboBox As ComboBox
+    Friend WithEvents ProductNameTextBox As TextBox
 End Class

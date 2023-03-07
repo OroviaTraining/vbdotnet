@@ -157,6 +157,12 @@
     <Compile Include="FormEF.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormFiles.Designer.vb">
+      <DependentUpon>FormFiles.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormFiles.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormGrid.Designer.vb">
       <DependentUpon>FormGrid.vb</DependentUpon>
     </Compile>
@@ -301,6 +307,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormEF.resx">
       <DependentUpon>FormEF.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFiles.resx">
+      <DependentUpon>FormFiles.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormGrid.resx">
       <DependentUpon>FormGrid.vb</DependentUpon>
