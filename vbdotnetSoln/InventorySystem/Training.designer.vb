@@ -55,6 +55,12 @@ Partial Public Class TrainingDataContext
     End Sub
   Partial Private Sub DeleteBCategory(instance As BCategory)
     End Sub
+  Partial Private Sub InsertPCountry(instance As PCountry)
+    End Sub
+  Partial Private Sub UpdatePCountry(instance As PCountry)
+    End Sub
+  Partial Private Sub DeletePCountry(instance As PCountry)
+    End Sub
   #End Region
 	
 	Public Sub New()
@@ -103,6 +109,12 @@ Partial Public Class TrainingDataContext
 	Public ReadOnly Property BCategories() As System.Data.Linq.Table(Of BCategory)
 		Get
 			Return Me.GetTable(Of BCategory)
+		End Get
+	End Property
+	
+	Public ReadOnly Property PCountries() As System.Data.Linq.Table(Of PCountry)
+		Get
+			Return Me.GetTable(Of PCountry)
 		End Get
 	End Property
 End Class
@@ -521,7 +533,7 @@ Partial Public Class Brand
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Brand_Category", Storage:="_BCategories", ThisKey:="bid", OtherKey:="bid")>  _
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Brand_BCategory", Storage:="_BCategories", ThisKey:="bid", OtherKey:="bid")>  _
 	Public Property BCategories() As EntitySet(Of BCategory)
 		Get
 			Return Me._BCategories
@@ -743,7 +755,7 @@ Partial Public Class BCategory
 		End Set
 	End Property
 	
-	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Brand_Category", Storage:="_Brand", ThisKey:="bid", OtherKey:="bid", IsForeignKey:=true, DeleteOnNull:=true, DeleteRule:="CASCADE")>  _
+	<Global.System.Data.Linq.Mapping.AssociationAttribute(Name:="Brand_BCategory", Storage:="_Brand", ThisKey:="bid", OtherKey:="bid", IsForeignKey:=true, DeleteOnNull:=true, DeleteRule:="CASCADE")>  _
 	Public Property Brand() As Brand
 		Get
 			Return Me._Brand.Entity
@@ -767,6 +779,112 @@ Partial Public Class BCategory
 					Me._bid = CType(Nothing, Integer)
 				End If
 				Me.SendPropertyChanged("Brand")
+			End If
+		End Set
+	End Property
+	
+	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
+	
+	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+	
+	Protected Overridable Sub SendPropertyChanging()
+		If ((Me.PropertyChangingEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanging(Me, emptyChangingEventArgs)
+		End If
+	End Sub
+	
+	Protected Overridable Sub SendPropertyChanged(ByVal propertyName As [String])
+		If ((Me.PropertyChangedEvent Is Nothing)  _
+					= false) Then
+			RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+		End If
+	End Sub
+End Class
+
+<Global.System.Data.Linq.Mapping.TableAttribute(Name:="dbo.Country")>  _
+Partial Public Class PCountry
+	Implements System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	
+	Private Shared emptyChangingEventArgs As PropertyChangingEventArgs = New PropertyChangingEventArgs(String.Empty)
+	
+	Private _cnCode As String
+	
+	Private _cnName As String
+	
+	Private _cnPopu As Integer
+	
+    #Region "Extensibility Method Definitions"
+    Partial Private Sub OnLoaded()
+    End Sub
+    Partial Private Sub OnValidate(action As System.Data.Linq.ChangeAction)
+    End Sub
+    Partial Private Sub OnCreated()
+    End Sub
+    Partial Private Sub OncnCodeChanging(value As String)
+    End Sub
+    Partial Private Sub OncnCodeChanged()
+    End Sub
+    Partial Private Sub OncnNameChanging(value As String)
+    End Sub
+    Partial Private Sub OncnNameChanged()
+    End Sub
+    Partial Private Sub OncnPopuChanging(value As Integer)
+    End Sub
+    Partial Private Sub OncnPopuChanged()
+    End Sub
+    #End Region
+	
+	Public Sub New()
+		MyBase.New
+		OnCreated
+	End Sub
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_cnCode", DbType:="Char(3) NOT NULL", CanBeNull:=false, IsPrimaryKey:=true)>  _
+	Public Property cnCode() As String
+		Get
+			Return Me._cnCode
+		End Get
+		Set
+			If (String.Equals(Me._cnCode, value) = false) Then
+				Me.OncnCodeChanging(value)
+				Me.SendPropertyChanging
+				Me._cnCode = value
+				Me.SendPropertyChanged("cnCode")
+				Me.OncnCodeChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_cnName", DbType:="VarChar(100) NOT NULL", CanBeNull:=false)>  _
+	Public Property cnName() As String
+		Get
+			Return Me._cnName
+		End Get
+		Set
+			If (String.Equals(Me._cnName, value) = false) Then
+				Me.OncnNameChanging(value)
+				Me.SendPropertyChanging
+				Me._cnName = value
+				Me.SendPropertyChanged("cnName")
+				Me.OncnNameChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_cnPopu", DbType:="Int NOT NULL")>  _
+	Public Property cnPopu() As Integer
+		Get
+			Return Me._cnPopu
+		End Get
+		Set
+			If ((Me._cnPopu = value)  _
+						= false) Then
+				Me.OncnPopuChanging(value)
+				Me.SendPropertyChanging
+				Me._cnPopu = value
+				Me.SendPropertyChanged("cnPopu")
+				Me.OncnPopuChanged
 			End If
 		End Set
 	End Property

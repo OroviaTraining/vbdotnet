@@ -36,3 +36,4 @@ C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\InventorySystem\obj\Debug\InventorySy
 C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\InventorySystem\obj\Debug\InventorySystem.CtlAddress.resources
 C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\InventorySystem\obj\Debug\InventorySystem.ctlBacs.resources
 C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\InventorySystem\obj\Debug\InventorySystem.FormFiles.resources
+C:\SourceCode\Orovia\vbdotnet\vbdotnetSoln\InventorySystem\obj\Debug\InventorySystem.FormFileProcessing.resources

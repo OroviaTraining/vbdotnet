@@ -26,12 +26,18 @@
         <elementListCompartment Id="9bf34236-d9d4-406e-be6c-363cabfac637" absoluteBounds="4.64, 4.71, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(6.125 : 1.69399251302083); (6.125 : 4.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/TrainingDataContext/Brand/Brand_Category" />
+    <associationConnector edgePoints="[(5.96875 : 1.69399251302083); (5.96875 : 4.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/TrainingDataContext/Brand/Brand_BCategory" />
       <nodes>
         <classShapeMoniker Id="01744e74-cf3c-4650-949b-9437b659afa9" />
         <classShapeMoniker Id="efe95c7e-e9ff-4059-8408-7d45b043f41b" />
       </nodes>
     </associationConnector>
+    <classShape Id="9be9a57d-8d5b-4be3-ace8-e90f9cab1297" absoluteBounds="6.375, 2.25, 2, 1.3862939453125">
+      <DataClassMoniker Name="/TrainingDataContext/PCountry" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e088067a-498f-4a0d-811a-942e8be34bdc" absoluteBounds="6.39, 2.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

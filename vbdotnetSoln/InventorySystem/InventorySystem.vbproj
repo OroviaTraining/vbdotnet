@@ -157,6 +157,12 @@
     <Compile Include="FormEF.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormFileProcessing.Designer.vb">
+      <DependentUpon>FormFileProcessing.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormFileProcessing.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormFiles.Designer.vb">
       <DependentUpon>FormFiles.vb</DependentUpon>
     </Compile>
@@ -234,6 +240,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelNorthWind.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Country.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -308,6 +315,9 @@
     <EmbeddedResource Include="FormEF.resx">
       <DependentUpon>FormEF.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormFileProcessing.resx">
+      <DependentUpon>FormFileProcessing.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormFiles.resx">
       <DependentUpon>FormFiles.vb</DependentUpon>
     </EmbeddedResource>
@@ -346,6 +356,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Data\Elements.csv" />
+    <None Include="Data\PayrollSummary.csv" />
+    <None Include="Data\population-density.csv" />
     <None Include="Inventory.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>Inventory.designer.vb</LastGenOutput>

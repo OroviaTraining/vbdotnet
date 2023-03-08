@@ -24,7 +24,7 @@
     <Type Name="Brand">
       <Column Name="bid" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="bname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="Brand_Category" Member="BCategories" ThisKey="bid" OtherKey="bid" Type="BCategory" />
+      <Association Name="Brand_BCategory" Member="BCategories" ThisKey="bid" OtherKey="bid" Type="BCategory" />
     </Type>
   </Table>
   <Table Name="dbo.Category" Member="BCategories">
@@ -36,7 +36,14 @@
       <Column Name="creuser" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="amddate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="amduser" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="Brand_Category" Member="Brand" ThisKey="bid" OtherKey="bid" Type="Brand" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Brand_BCategory" Member="Brand" ThisKey="bid" OtherKey="bid" Type="Brand" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Country" Member="PCountries">
+    <Type Name="PCountry">
+      <Column Name="cnCode" Type="System.String" DbType="Char(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="cnName" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="cnPopu" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>
