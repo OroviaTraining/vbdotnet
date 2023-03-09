@@ -23,18 +23,26 @@ Partial Class FormFileProcessing
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtFile = New System.Windows.Forms.TextBox()
-        Me.btnChoose = New System.Windows.Forms.Button()
-        Me.dgvCountry = New System.Windows.Forms.DataGridView()
         Me.btnSave = New System.Windows.Forms.Button()
+        Me.btnChoose = New System.Windows.Forms.Button()
+        Me.txtFile = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.dgvCountry = New System.Windows.Forms.DataGridView()
+        Me.btnMethod1 = New System.Windows.Forms.Button()
+        Me.btnMethod2 = New System.Windows.Forms.Button()
+        Me.btnMethod3 = New System.Windows.Forms.Button()
+        Me.btnMethod4 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.dgvCountry, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.btnMethod4)
+        Me.Panel1.Controls.Add(Me.btnMethod3)
+        Me.Panel1.Controls.Add(Me.btnMethod2)
+        Me.Panel1.Controls.Add(Me.btnMethod1)
         Me.Panel1.Controls.Add(Me.btnSave)
         Me.Panel1.Controls.Add(Me.btnChoose)
         Me.Panel1.Controls.Add(Me.txtFile)
@@ -42,29 +50,18 @@ Partial Class FormFileProcessing
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(915, 41)
+        Me.Panel1.Size = New System.Drawing.Size(915, 81)
         Me.Panel1.TabIndex = 0
         '
-        'OpenFileDialog1
+        'btnSave
         '
-        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        Me.OpenFileDialog1.InitialDirectory = "C:\Ramith\PythonMadeEasy\Papa\Data"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(24, 13)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(29, 13)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "File :"
-        '
-        'txtFile
-        '
-        Me.txtFile.Location = New System.Drawing.Point(59, 10)
-        Me.txtFile.Name = "txtFile"
-        Me.txtFile.Size = New System.Drawing.Size(404, 20)
-        Me.txtFile.TabIndex = 1
+        Me.btnSave.Enabled = False
+        Me.btnSave.Location = New System.Drawing.Point(818, 10)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(75, 23)
+        Me.btnSave.TabIndex = 3
+        Me.btnSave.Text = "Save"
+        Me.btnSave.UseVisualStyleBackColor = True
         '
         'btnChoose
         '
@@ -75,23 +72,75 @@ Partial Class FormFileProcessing
         Me.btnChoose.Text = "Choose ..."
         Me.btnChoose.UseVisualStyleBackColor = True
         '
+        'txtFile
+        '
+        Me.txtFile.Location = New System.Drawing.Point(59, 10)
+        Me.txtFile.Name = "txtFile"
+        Me.txtFile.Size = New System.Drawing.Size(404, 20)
+        Me.txtFile.TabIndex = 1
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(24, 13)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(29, 13)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "File :"
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        Me.OpenFileDialog1.InitialDirectory = "C:\Ramith\PythonMadeEasy\Papa\Data"
+        '
         'dgvCountry
         '
         Me.dgvCountry.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvCountry.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.dgvCountry.Location = New System.Drawing.Point(0, 41)
+        Me.dgvCountry.Location = New System.Drawing.Point(0, 81)
         Me.dgvCountry.Name = "dgvCountry"
-        Me.dgvCountry.Size = New System.Drawing.Size(915, 409)
+        Me.dgvCountry.Size = New System.Drawing.Size(915, 369)
         Me.dgvCountry.TabIndex = 1
         '
-        'btnSave
+        'btnMethod1
         '
-        Me.btnSave.Location = New System.Drawing.Point(818, 10)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(75, 23)
-        Me.btnSave.TabIndex = 3
-        Me.btnSave.Text = "Save"
-        Me.btnSave.UseVisualStyleBackColor = True
+        Me.btnMethod1.Enabled = False
+        Me.btnMethod1.Location = New System.Drawing.Point(59, 52)
+        Me.btnMethod1.Name = "btnMethod1"
+        Me.btnMethod1.Size = New System.Drawing.Size(75, 23)
+        Me.btnMethod1.TabIndex = 4
+        Me.btnMethod1.Text = "Method 1"
+        Me.btnMethod1.UseVisualStyleBackColor = True
+        '
+        'btnMethod2
+        '
+        Me.btnMethod2.Enabled = False
+        Me.btnMethod2.Location = New System.Drawing.Point(140, 52)
+        Me.btnMethod2.Name = "btnMethod2"
+        Me.btnMethod2.Size = New System.Drawing.Size(75, 23)
+        Me.btnMethod2.TabIndex = 5
+        Me.btnMethod2.Text = "Method 2"
+        Me.btnMethod2.UseVisualStyleBackColor = True
+        '
+        'btnMethod3
+        '
+        Me.btnMethod3.Enabled = False
+        Me.btnMethod3.Location = New System.Drawing.Point(221, 52)
+        Me.btnMethod3.Name = "btnMethod3"
+        Me.btnMethod3.Size = New System.Drawing.Size(75, 23)
+        Me.btnMethod3.TabIndex = 6
+        Me.btnMethod3.Text = "Method 3"
+        Me.btnMethod3.UseVisualStyleBackColor = True
+        '
+        'btnMethod4
+        '
+        Me.btnMethod4.Enabled = False
+        Me.btnMethod4.Location = New System.Drawing.Point(302, 52)
+        Me.btnMethod4.Name = "btnMethod4"
+        Me.btnMethod4.Size = New System.Drawing.Size(75, 23)
+        Me.btnMethod4.TabIndex = 7
+        Me.btnMethod4.Text = "Method 4"
+        Me.btnMethod4.UseVisualStyleBackColor = True
         '
         'FormFileProcessing
         '
@@ -116,4 +165,8 @@ Partial Class FormFileProcessing
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents dgvCountry As DataGridView
     Friend WithEvents btnSave As Button
+    Friend WithEvents btnMethod2 As Button
+    Friend WithEvents btnMethod1 As Button
+    Friend WithEvents btnMethod3 As Button
+    Friend WithEvents btnMethod4 As Button
 End Class
