@@ -360,6 +360,7 @@
     <None Include="Data\food.csv" />
     <None Include="Data\PayrollSummary.csv" />
     <None Include="Data\population-density.csv" />
+    <None Include="Data\Population.csv" />
     <None Include="Data\Species_clustering_classification.csv" />
     <None Include="Data\world-cities.csv" />
     <None Include="Inventory.dbml">
