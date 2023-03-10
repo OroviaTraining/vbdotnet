@@ -3,6 +3,8 @@
 Public Class FormFileProcessing
     Private countries As New List(Of Country)
     Private filePath As String
+    Private destFile As String
+    Private manfNames As New List(Of String)
 
     Private Sub btnChoose_Click(sender As Object, e As EventArgs) Handles btnChoose.Click
         'Get file path to process
@@ -232,5 +234,66 @@ Public Class FormFileProcessing
         'Show the data in the grid
         dgvCountry.DataSource = countries
         btnSave.Enabled = True
+    End Sub
+
+
+
+    Private Sub btnMethod5_Click(sender As Object, e As EventArgs) Handles btnMethod5.Click
+        ProcessMethod5()
+    End Sub
+    Private Sub ProcessMethod5()
+        Dim destData As String
+        Dim rawData = File.ReadAllLines(filePath).ToList
+        Dim separator = New String() {",", "|", ";"}
+        'Delete the first header row
+        rawData.RemoveAt(0)
+
+
+        Dim marks = "80,75,,,45,77,90,"
+        Dim marksList = marks.Split(",")
+        Dim marks1 = marks.Split(separator, StringSplitOptions.RemoveEmptyEntries)
+
+        'Write data from 1963 to separate file
+        Using wr = New StreamWriter(destFile)
+            'Write the header line
+            wr.WriteLine("Country Name,Country Code,1960,1961,1962,1963,9164,1965")
+            For Each r In rawData
+                'Split the line
+                Dim items = r.Split(separator, StringSplitOptions.RemoveEmptyEntries)
+                destData = $"{items(0)},{items(1)},{items(4)},{items(5)},{items(6)},{items(7)},{items(8)},{items(9)}"
+                wr.WriteLine(destData)
+            Next
+        End Using
+    End Sub
+
+    Private Sub btnDestFile_Click(sender As Object, e As EventArgs) Handles btnDestFile.Click
+        btnMethod5.Enabled = False
+        If SaveFileDialog1.ShowDialog = DialogResult.OK Then
+            destFile = SaveFileDialog1.FileName
+            btnMethod5.Enabled = True
+            txtDest.Text = destFile
+        End If
+
+        'Array examples
+        'Dim marks() As Integer = {1, 3, 5, 6, 8}
+        'Dim names = New String() {"dc", "kc", "mc"}
+        'Dim cities As String() = {"shimoga", "Mandta", "bdvt"}
+        'Dim states() As String = {"Kar", "Del", "Tml"}
+
+    End Sub
+
+    Private Sub btnCars_Click(sender As Object, e As EventArgs) Handles btnCars.Click
+        Dim rawData = File.ReadAllLines(filePath).ToList
+        Dim separator = New String() {",", "|", ";"}
+        'Delete the first header row
+        rawData.RemoveAt(0)
+        rawData.ForEach(Sub(B)
+                            Dim items = B.Split(separator, StringSplitOptions.RemoveEmptyEntries)
+                            Dim manfName As String = items(13)
+                            If manfNames.Contains(manfName) = False Then
+                                manfNames.Add(manfName)
+                            End If
+                        End Sub)
+        dgvCountry.DataSource = manfNames
     End Sub
 End Class

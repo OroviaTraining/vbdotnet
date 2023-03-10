@@ -356,6 +356,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Data\cars.csv" />
     <None Include="Data\Elements.csv" />
     <None Include="Data\food.csv" />
     <None Include="Data\PayrollSummary.csv" />
