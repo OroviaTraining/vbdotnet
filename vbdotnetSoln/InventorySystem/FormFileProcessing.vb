@@ -17,6 +17,7 @@ Public Class FormFileProcessing
 
         ' ProcessMethod1()
     End Sub
+
     ''' <summary>
     ''' Before calling this function make sure the field filepath is set.
     ''' </summary>
@@ -64,7 +65,11 @@ Public Class FormFileProcessing
         btnSave.Enabled = True
     End Sub
 
+
+
     Private Sub FormFileProcessing_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim empl As ClassShape
+        Dim emp2 As New ClassShape
 
     End Sub
 
@@ -295,5 +300,70 @@ Public Class FormFileProcessing
                             End If
                         End Sub)
         dgvCountry.DataSource = manfNames
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        Dim data As String = String.Empty
+        Using reader As StreamReader = New StreamReader(filePath)
+            'Read and ignore header or column reader
+            reader.ReadLine()
+            Do
+                data = reader.ReadLine()
+                'on EOF exit loop
+                If data = String.Empty Then Exit Do
+
+                'Split this into comma
+                Dim items = data.Split(",")
+
+                'Write to 1960 file
+                Using sw As StreamWriter = File.AppendText("C:\Temp\1960.txt")
+                    'CountryCode,CountryName,Population
+                    sw.WriteLine($"{items(1)},{items(0)},{items(4)}")
+                End Using
+                'Write to 1961 file
+                Using sw As StreamWriter = File.AppendText("C:\Temp\1961.txt")
+                    'CountryCode,CountryName,Population
+                    sw.WriteLine($"{items(1)},{items(0)},{items(5)}")
+                End Using
+                'Write to 1962 file
+                Using sw As StreamWriter = File.AppendText("C:\Temp\1962.txt")
+                    'CountryCode,CountryName,Population
+                    sw.WriteLine($"{items(1)},{items(0)},{items(6)}")
+                End Using
+                'Write to 1963 file
+                Using sw As StreamWriter = File.AppendText("C:\Temp\1963.txt")
+                    'CountryCode,CountryName,Population
+                    sw.WriteLine($"{items(1)},{items(0)},{items(7)}")
+                End Using
+            Loop
+        End Using
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Dim data As String = String.Empty
+        Using reader As StreamReader = New StreamReader(filePath)
+            'Read and ignore header or column reader
+            reader.ReadLine()
+            Do
+                data = reader.ReadLine()
+                'on EOF exit loop
+                If data = String.Empty Then Exit Do
+
+                'Split this into comma
+                Dim items = data.Split(",")
+
+                'Write to 1960 file
+                AppendText(items, 4, "1960")
+                AppendText(items, 5, "1961")
+                AppendText(items, 6, "1962")
+                AppendText(items, 7, "1963")
+            Loop
+        End Using
+    End Sub
+    Private Sub AppendText(ByVal values As String(), ByVal idx As Integer, ByVal fileName As String)
+        Using sw As StreamWriter = File.AppendText($"C:\Temp\{fileName}.txt")
+            'CountryCode,CountryName,Population
+            sw.WriteLine($"{values(1)},{values(0)},{values(idx)}")
+        End Using
     End Sub
 End Class

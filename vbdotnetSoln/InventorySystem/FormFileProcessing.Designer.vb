@@ -23,6 +23,7 @@ Partial Class FormFileProcessing
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnCars = New System.Windows.Forms.Button()
         Me.btnDestFile = New System.Windows.Forms.Button()
         Me.txtDest = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -38,13 +39,24 @@ Partial Class FormFileProcessing
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.dgvCountry = New System.Windows.Forms.DataGridView()
         Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
-        Me.btnCars = New System.Windows.Forms.Button()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.Button4 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.dgvCountry, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.Button4)
+        Me.Panel1.Controls.Add(Me.CheckBox1)
+        Me.Panel1.Controls.Add(Me.Button3)
+        Me.Panel1.Controls.Add(Me.Button2)
+        Me.Panel1.Controls.Add(Me.Button1)
+        Me.Panel1.Controls.Add(Me.Button6)
         Me.Panel1.Controls.Add(Me.btnCars)
         Me.Panel1.Controls.Add(Me.btnDestFile)
         Me.Panel1.Controls.Add(Me.txtDest)
@@ -63,6 +75,15 @@ Partial Class FormFileProcessing
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(915, 107)
         Me.Panel1.TabIndex = 0
+        '
+        'btnCars
+        '
+        Me.btnCars.Location = New System.Drawing.Point(469, 78)
+        Me.btnCars.Name = "btnCars"
+        Me.btnCars.Size = New System.Drawing.Size(75, 23)
+        Me.btnCars.TabIndex = 12
+        Me.btnCars.Text = "Cars"
+        Me.btnCars.UseVisualStyleBackColor = True
         '
         'btnDestFile
         '
@@ -192,14 +213,60 @@ Partial Class FormFileProcessing
         '
         Me.SaveFileDialog1.InitialDirectory = "C:\Temp\Processed"
         '
-        'btnCars
+        'Button6
         '
-        Me.btnCars.Location = New System.Drawing.Point(469, 78)
-        Me.btnCars.Name = "btnCars"
-        Me.btnCars.Size = New System.Drawing.Size(75, 23)
-        Me.btnCars.TabIndex = 12
-        Me.btnCars.Text = "Cars"
-        Me.btnCars.UseVisualStyleBackColor = True
+        Me.Button6.Location = New System.Drawing.Point(550, 78)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(75, 23)
+        Me.Button6.TabIndex = 13
+        Me.Button6.Text = "Method 6"
+        Me.Button6.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(140, 14)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 14
+        Me.Button1.Text = "Method 6"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(140, 14)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 15
+        Me.Button2.Text = "Method 6"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(631, 78)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(83, 19)
+        Me.Button3.TabIndex = 16
+        Me.Button3.Text = "Button3"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(665, 25)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(81, 17)
+        Me.CheckBox1.TabIndex = 17
+        Me.CheckBox1.Text = "CheckBox1"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(582, 34)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(65, 22)
+        Me.Button4.TabIndex = 18
+        Me.Button4.Text = "Button4"
+        Me.Button4.UseVisualStyleBackColor = True
         '
         'FormFileProcessing
         '
@@ -234,4 +301,10 @@ Partial Class FormFileProcessing
     Friend WithEvents Label2 As Label
     Friend WithEvents SaveFileDialog1 As SaveFileDialog
     Friend WithEvents btnCars As Button
+    Friend WithEvents Button6 As Button
+    Friend WithEvents Button4 As Button
+    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Button1 As Button
 End Class
